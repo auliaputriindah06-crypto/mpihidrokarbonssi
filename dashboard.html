@@ -490,13 +490,17 @@
    </div>
   </div><!-- Pusat Informasi Page -->
   <div id="pusatInfoPage" class="dashboard hidden">
-   <div class="container mx-auto max-w-6xl lg:max-w-7xl"><!-- Header -->
-    <div class="dashboard-header mb-6">
-     <h1 class="text-xl md:text-3xl font-bold">Pusat Informasi</h1>
-     <p class="text-white text-opacity-80 text-sm md:text-base">Informasi lengkap tentang pembelajaran Hidrokarbon</p>
-    </div><!-- Tab Navigation - Responsive Scroll -->
-    <div class="bg-white rounded-t-2xl shadow-md overflow-x-auto scrollbar-hide">
-     <div class="flex border-b-2 border-gray-200 min-w-max"><button class="tab-button active px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-blue-600 bg-blue-50 border-b-4 border-blue-600 whitespace-nowrap transition-all" data-tab="cp"> Capaian Pembelajaran </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="tp"> Tujuan Pembelajaran </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="petunjuk"> Petunjuk Penggunaan </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="profil"> Profil Pengembang </button>
+   <div class="container mx-auto max-w-6xl lg:max-w-7xl">
+    <!-- Wrapper Sticky Khusus Desktop -->
+    <div class="lg:sticky lg:top-0 lg:z-50 lg:bg-[#f0f9ff] lg:pt-6 lg:-mt-6">
+     <!-- Header -->
+     <div class="dashboard-header mb-2">
+      <h1 class="text-xl md:text-3xl font-bold">Pusat Informasi</h1>
+      <p class="text-white text-opacity-80 text-sm md:text-base">Informasi lengkap tentang pembelajaran Hidrokarbon</p>
+     </div><!-- Tab Navigation - Responsive Scroll -->
+     <div class="bg-white rounded-t-2xl shadow-md overflow-x-auto scrollbar-hide">
+      <div class="flex border-b-2 border-gray-200 min-w-max lg:w-full lg:justify-center"><button class="tab-button active px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-blue-600 bg-blue-50 border-b-4 border-blue-600 whitespace-nowrap transition-all" data-tab="cp"> Capaian Pembelajaran </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="tp"> Tujuan Pembelajaran </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="petunjuk"> Petunjuk Penggunaan </button> <button class="tab-button px-4 md:px-6 py-3 md:py-4 text-sm md:text-base font-semibold text-gray-500 border-b-4 border-transparent hover:text-gray-700 hover:bg-gray-50 whitespace-nowrap transition-all" data-tab="profil"> Profil Pengembang </button>
+      </div>
      </div>
     </div><!-- Tab Content -->
     <div class="bg-white rounded-b-2xl shadow-md p-4 md:p-6 mb-6"><!-- CP Tab -->
@@ -629,13 +633,37 @@
         <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
          </svg> Zona Eksplorasi</h3>
-        <p class="ml-7 text-gray-700">
-         Pelajari materi inti hidrokarbon dan isu sosial-saintifik terkait. Klik <strong>"Mulai Investigasi"</strong> untuk memulai pembelajaran interaktif secara bertahap:<br>
-         <span class="block my-2 text-sm md:text-base">
-          <span class="bg-yellow-300 text-gray-900 px-2 py-1 rounded font-medium inline-block shadow-sm transform -rotate-1">[Mengenal Hidrokarbon] → [Alkana] → [Alkena] → [Alkuna]</span>
-         </span>
-         <span class="text-amber-600 font-semibold text-sm">⚠️ Pastikan paham satu materi sebelum lanjut!</span>
-        </p>
+        <div class="ml-7 text-gray-700">
+         <p class="mb-3">Pelajari materi inti hidrokarbon dan isu sosial-saintifik terkait. Klik <strong>"Mulai Investigasi"</strong> untuk memulai pembelajaran interaktif secara bertahap:</p>
+         
+         <div class="my-3">
+          <div class="bg-yellow-300 text-gray-900 px-3 py-2 rounded-lg font-medium shadow-sm transform -rotate-1 inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-sm md:text-base leading-snug">
+           <span class="whitespace-nowrap">[Mengenal Hidrokarbon]</span>
+           <span class="font-black text-lg">→</span>
+           <span class="whitespace-nowrap">[Alkana]</span>
+           <span class="font-black text-lg">→</span>
+           <span class="whitespace-nowrap">[Alkena]</span>
+           <span class="font-black text-lg">→</span>
+           <span class="whitespace-nowrap">[Alkuna]</span>
+          </div>
+         </div>
+
+         <p class="text-amber-600 font-semibold text-sm mb-3">⚠️ Pastikan paham satu materi sebelum lanjut!</p>
+         
+         <div class="bg-white p-3 rounded-lg border border-blue-200 text-sm shadow-sm">
+          <p class="font-bold text-blue-800 mb-1 flex items-center">
+           <span class="mr-2 text-base">↔️</span> Navigasi Halaman Materi
+          </p>
+          <p class="text-gray-600">Di setiap akhir halaman sub-materi, gunakan tombol navigasi biru di pojok bawah (&lt; Kembali atau Lanjut &gt;) untuk berpindah halaman.</p>
+         </div>
+
+         <div class="bg-white p-3 rounded-lg border border-blue-200 text-sm shadow-sm mt-3">
+          <p class="font-bold text-blue-800 mb-1 flex items-center">
+           <span class="mr-2 text-base">📑</span> Menu Sidebar
+          </p>
+          <p class="text-gray-600">Terdapat <strong>sidebar</strong> (daftar isi) di sisi layar yang bisa kamu gunakan untuk melihat struktur keseluruhan materi dan melompat ke bagian sub-materi tertentu dengan cepat.</p>
+         </div>
+        </div>
        </div>
        <div class="bg-purple-50 p-4 rounded-lg">
         <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
