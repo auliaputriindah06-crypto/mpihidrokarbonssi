@@ -391,11 +391,11 @@
                                             <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
                                             Topik Investigasi
                                         </div>
-                                        <h3 class="text-3xl md:text-6xl font-black text-white leading-[0.9] tracking-tight">
+                                        <h3 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-[1.1] tracking-tight">
                                             SISI GELAP <br>
                                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-400 to-red-500 filter drop-shadow-lg">PISANG KUNING</span>
                                             <!-- Added Skull Icon -->
-                                            <span class="inline-block ml-2 text-4xl md:text-5xl animate-pulse filter drop-shadow-[0_0_15px_rgba(220,38,38,0.5)] align-middle">☠️</span>
+                                            <span class="inline-block ml-2 text-3xl md:text-4xl lg:text-5xl animate-pulse filter drop-shadow-[0_0_15px_rgba(220,38,38,0.5)] align-middle">☠️</span>
                                         </h3>
                                         <p class="text-slate-400 mt-4 text-sm md:text-base font-medium tracking-wide">Bahaya Penggunaan Karbit Industri pada Buah</p>
                                     </div>
@@ -583,7 +583,7 @@
                     </div>
 
                     <!-- INVESTIGASI KARBIT STEPPER (NEW DARK DESIGN) -->
-                    <div class="relative w-full mx-auto mt-10 mb-10 group perspective-1000">
+                    <div id="investigasi-stepper" class="relative w-full mx-auto mt-10 mb-10 group perspective-1000">
                         <!-- Glowing Border Effect -->
                         <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 rounded-[2.5rem] blur opacity-30 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                         
@@ -600,34 +600,37 @@
                             </div>
                             
                             <!-- Stepper Header -->
-                            <div class="p-3 sm:p-5 relative z-10 border-b border-white/5">
-                                <!-- Progress Line Wrapper (Centered & Shorter) -->
-                                <div class="absolute top-1/2 left-[15%] right-[15%] sm:left-[12%] sm:right-[12%] h-[2px] sm:h-[3px] bg-slate-700 -translate-y-1/2 z-0 rounded-full">
-                                    <!-- Progress Line Active -->
-                                    <div class="h-full bg-gradient-to-r from-yellow-500 to-red-500 transition-all duration-500 shadow-[0_0_10px_rgba(239,68,68,0.8)] rounded-full" id="stepper-progress" style="width: 0%;"></div>
-                                </div>
-                                
-                                <div class="flex justify-between items-center w-full relative z-10 px-1 sm:px-8">
-                                    <!-- Step 1 -->
-                                    <button id="step-btn-1" onclick="goToStep(1)" class="flex flex-col items-center gap-1 sm:gap-1.5 group outline-none">
-                                        <div id="step-circle-1" class="w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 ring-2 ring-red-500/30 shadow-[0_0_10px_rgba(239,68,68,0.5)] transition-all scale-110 relative z-10">1</div>
-                                        <span class="text-[8px] sm:text-[10px] font-bold text-red-400 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap" id="step-text-1">Fakta Kimia</span>
-                                    </button>
-                                    <!-- Step 2 -->
-                                    <button id="step-btn-2" onclick="goToStep(2)" class="flex flex-col items-center gap-1 sm:gap-1.5 group outline-none">
-                                        <div id="step-circle-2" class="w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">2</div>
-                                        <span class="text-[8px] sm:text-[10px] font-bold text-slate-500 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block" id="step-text-2">Bukti Nyata</span>
-                                    </button>
-                                    <!-- Step 3 -->
-                                    <button id="step-btn-3" onclick="goToStep(3)" class="flex flex-col items-center gap-1 sm:gap-1.5 group outline-none">
-                                        <div id="step-circle-3" class="w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">3</div>
-                                        <span class="text-[8px] sm:text-[10px] font-bold text-slate-500 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block" id="step-text-3">Zona Konflik</span>
-                                    </button>
-                                    <!-- Step 4 -->
-                                    <button id="step-btn-4" onclick="goToStep(4)" class="flex flex-col items-center gap-1 sm:gap-1.5 group outline-none">
-                                        <div id="step-circle-4" class="w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">4</div>
-                                        <span class="text-[8px] sm:text-[10px] font-bold text-slate-500 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block" id="step-text-4">Ambil Sikap</span>
-                                    </button>
+                            <div class="pt-4 pb-8 sm:pt-6 sm:pb-10 relative z-10 border-b border-white/5">
+                                <!-- Wrapper kakompakan sangkan garis teu manjang mentok ka ujung -->
+                                <div class="relative w-[70%] sm:w-[75%] max-w-md mx-auto">
+                                    <!-- Progress Line Wrapper (Tepat ngahubungkeun tengah-tengah bunderan) -->
+                                    <div class="absolute top-[10px] sm:top-[14px] left-[10px] right-[10px] sm:left-[14px] sm:right-[14px] h-[2px] sm:h-[3px] bg-slate-700 z-0 rounded-full">
+                                        <!-- Progress Line Active -->
+                                        <div class="h-full bg-gradient-to-r from-yellow-500 to-red-500 transition-all duration-500 shadow-[0_0_10px_rgba(239,68,68,0.8)] rounded-full" id="stepper-progress" style="width: 0%;"></div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center w-full relative z-10">
+                                        <!-- Step 1 -->
+                                        <button id="step-btn-1" onclick="goToStep(1)" class="flex flex-col items-center group outline-none relative">
+                                            <div id="step-circle-1" class="w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 ring-2 ring-red-500/30 shadow-[0_0_10px_rgba(239,68,68,0.5)] transition-all scale-110 relative z-10">1</div>
+                                            <span class="text-[9px] sm:text-[11px] font-bold text-red-400 absolute top-6 sm:top-8 whitespace-nowrap" id="step-text-1">Fakta Kimia</span>
+                                        </button>
+                                        <!-- Step 2 -->
+                                        <button id="step-btn-2" onclick="goToStep(2)" class="flex flex-col items-center group outline-none relative">
+                                            <div id="step-circle-2" class="w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">2</div>
+                                            <span class="text-[9px] sm:text-[11px] font-bold text-slate-500 absolute top-6 sm:top-8 whitespace-nowrap hidden sm:block" id="step-text-2">Bukti Nyata</span>
+                                        </button>
+                                        <!-- Step 3 -->
+                                        <button id="step-btn-3" onclick="goToStep(3)" class="flex flex-col items-center group outline-none relative">
+                                            <div id="step-circle-3" class="w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">3</div>
+                                            <span class="text-[9px] sm:text-[11px] font-bold text-slate-500 absolute top-6 sm:top-8 whitespace-nowrap hidden sm:block" id="step-text-3">Zona Konflik</span>
+                                        </button>
+                                        <!-- Step 4 -->
+                                        <button id="step-btn-4" onclick="goToStep(4)" class="flex flex-col items-center group outline-none relative">
+                                            <div id="step-circle-4" class="w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-slate-400 bg-slate-800 border border-slate-600 ring-2 ring-slate-900 transition-all relative z-10">4</div>
+                                            <span class="text-[9px] sm:text-[11px] font-bold text-slate-500 absolute top-6 sm:top-8 whitespace-nowrap hidden sm:block" id="step-text-4">Ambil Sikap</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -635,23 +638,25 @@
                             <div class="p-4 sm:p-6 md:p-8 min-h-[350px] relative z-10 flex-1">
                                 <!-- STEP 1 -->
                                 <div id="step-content-1" class="step-content animate-fade-in-down block">
-                                    <h4 class="text-lg md:text-xl font-bold text-white mb-3 flex items-center gap-2">
-                                        <span class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 border border-red-500/30 flex items-center justify-center shadow-sm text-sm">1</span> 
+                                    <h4 class="text-base md:text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-lg bg-red-500/20 text-red-400 border border-red-500/30 flex items-center justify-center shadow-sm text-xs">1</span> 
                                         Fakta Kimia Karbit
                                     </h4>
                                     <p class="text-slate-300 leading-relaxed mb-4 text-xs sm:text-sm">
                                         Gas karbit secara ilmiah disebut <strong>Etuna</strong>. Gas ini dihasilkan dari reaksi antara Batu Karbit (Kalsium Karbida) dengan Air:
                                     </p>
-                                    <div class="w-full overflow-x-auto scroll-container pb-2 mb-4">
-                                        <div class="font-mono text-center text-xs sm:text-sm md:text-base text-green-400 bg-slate-900 p-3 rounded-xl border border-slate-700 w-max mx-auto px-4 whitespace-nowrap shadow-inner">
-                                            CaC₂ (s) + 2H₂O (l) → <span class="text-yellow-400 font-bold bg-yellow-500/10 px-2 py-0.5 rounded border border-yellow-500/30">C₂H₂</span> (g) + Ca(OH)₂ (aq)
+                                    
+                                    <!-- Diropea: Scroll dihapus, w-full dilarapkeun kalayan ukuran font nu leuwih dinamis (text-[9px] di HP) -->
+                                    <div class="w-full mb-4 flex justify-center">
+                                        <div class="font-mono text-center text-[9px] min-[375px]:text-[10px] sm:text-sm md:text-base text-green-400 bg-slate-900 p-2 sm:p-3 rounded-xl border border-slate-700 w-full sm:w-max mx-auto px-1 sm:px-4 whitespace-nowrap shadow-inner flex items-center justify-center tracking-tighter sm:tracking-normal">
+                                            CaC₂ (s) + 2H₂O (l) → <span class="text-yellow-400 font-bold bg-yellow-500/10 px-1 sm:px-2 py-0.5 rounded border border-yellow-500/30 mx-1">C₂H₂</span> (g) + Ca(OH)₂ (aq)
                                         </div>
                                     </div>
 
                                     <div class="bg-red-950/40 rounded-2xl p-4 border-l-4 border-red-500 shadow-lg relative overflow-hidden">
                                         <div class="absolute top-0 right-0 w-24 h-24 bg-red-500/10 blur-2xl"></div>
-                                        <h5 class="text-red-400 font-bold text-base mb-2 flex items-center gap-2 relative z-10">
-                                            <span class="text-xl animate-pulse">⚠️</span> Bahaya Karbit Industri
+                                        <h5 class="text-red-400 font-bold text-sm md:text-base mb-2 flex items-center gap-2 relative z-10">
+                                            <span class="text-lg animate-pulse">⚠️</span> Bahaya Karbit Industri
                                         </h5>
                                         <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 relative z-10">
                                             Harga karbit murni yang relatif mahal mendorong pedagang untuk menggunakan <strong class="text-white">karbit las</strong> sebagai alternatif yang lebih murah. Namun, karbit jenis industri ini mengandung zat pengotor yang melepaskan gas sampingan berbahaya:
@@ -677,8 +682,8 @@
 
                                 <!-- STEP 2 -->
                                 <div id="step-content-2" class="step-content animate-fade-in-down hidden">
-                                    <h4 class="text-lg md:text-xl font-bold text-white mb-3 flex items-center gap-2">
-                                        <span class="w-8 h-8 rounded-lg bg-orange-500/20 text-orange-400 border border-orange-500/30 flex items-center justify-center shadow-sm text-sm">2</span> 
+                                    <h4 class="text-base md:text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-lg bg-orange-500/20 text-orange-400 border border-orange-500/30 flex items-center justify-center shadow-sm text-xs">2</span> 
                                         Bukti Nyata di Lapangan
                                     </h4>
                                     <div class="bg-slate-800/50 p-3 md:p-5 rounded-2xl border border-slate-700 mb-4 backdrop-blur-sm">
@@ -695,8 +700,8 @@
 
                                 <!-- STEP 3 -->
                                 <div id="step-content-3" class="step-content animate-fade-in-down hidden">
-                                    <h4 class="text-lg md:text-xl font-bold text-white mb-3 flex items-center gap-2">
-                                        <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center shadow-sm text-sm">3</span> 
+                                    <h4 class="text-base md:text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center shadow-sm text-xs">3</span> 
                                         Analisis Masalah
                                     </h4>
                                     <p class="text-slate-300 leading-relaxed mb-4 text-xs sm:text-sm">
@@ -705,7 +710,7 @@
                                     
                                     <div class="w-full bg-slate-900/80 rounded-2xl shadow-lg border border-slate-700 backdrop-blur-md overflow-hidden">
                                         <table class="w-full text-left table-fixed">
-                                            <thead class="text-[9px] sm:text-xs text-white uppercase bg-gradient-to-r from-purple-900 to-indigo-900 border-b border-slate-600 text-center">
+                                            <thead class="text-[9px] sm:text-[11px] lg:text-sm text-white uppercase bg-gradient-to-r from-purple-900 to-indigo-900 border-b border-slate-600 text-center">
                                                 <tr>
                                                     <th scope="col" class="w-[20%] sm:w-[15%] p-1.5 sm:p-3 leading-tight border-r border-white/10">Sudut<br>Pandang</th>
                                                     <th scope="col" class="w-[26%] sm:w-[28%] p-1.5 sm:p-3 leading-tight border-r border-white/5">Pakar & Pemerintah</th>
@@ -717,7 +722,7 @@
                                                 <tr class="hover:bg-slate-800/50 transition-colors">
                                                     <td class="p-1 sm:p-3 font-bold text-white bg-purple-900/40 align-middle text-center border-r border-slate-700/50">
                                                         <div class="flex flex-col items-center justify-center gap-0.5">
-                                                            <span class="text-sm sm:text-lg">🏥</span>
+                                                            <span class="text-sm sm:text-base lg:text-xl">🏥</span>
                                                             <span class="tracking-wide">Kesehatan</span>
                                                         </div>
                                                     </td>
@@ -734,7 +739,7 @@
                                                 <tr class="hover:bg-slate-800/50 transition-colors">
                                                     <td class="p-1 sm:p-3 font-bold text-white bg-purple-900/40 align-middle text-center border-r border-slate-700/50">
                                                         <div class="flex flex-col items-center justify-center gap-0.5">
-                                                            <span class="text-sm sm:text-lg">💰</span>
+                                                            <span class="text-sm sm:text-base lg:text-xl">💰</span>
                                                             <span class="tracking-wide">Ekonomi</span>
                                                         </div>
                                                     </td>
@@ -751,7 +756,7 @@
                                                 <tr class="hover:bg-slate-800/50 transition-colors">
                                                     <td class="p-1 sm:p-3 font-bold text-white bg-purple-900/40 align-middle text-center border-r border-slate-700/50">
                                                         <div class="flex flex-col items-center justify-center gap-0.5">
-                                                            <span class="text-sm sm:text-lg">🤝</span>
+                                                            <span class="text-sm sm:text-base lg:text-xl">🤝</span>
                                                             <span class="tracking-wide">Sosial</span>
                                                         </div>
                                                     </td>
@@ -768,7 +773,7 @@
                                                 <tr class="hover:bg-slate-800/50 transition-colors">
                                                     <td class="p-1 sm:p-3 font-bold text-white bg-purple-900/40 align-middle text-center border-r border-slate-700/50">
                                                         <div class="flex flex-col items-center justify-center gap-0.5">
-                                                            <span class="text-sm sm:text-lg">⚖️</span>
+                                                            <span class="text-sm sm:text-base lg:text-xl">⚖️</span>
                                                             <span class="tracking-wide">Etika</span>
                                                         </div>
                                                     </td>
@@ -790,19 +795,15 @@
                                 <!-- STEP 4 -->
                                 <div id="step-content-4" class="step-content animate-fade-in-down hidden">
                                     <div class="relative bg-white/5 rounded-2xl sm:rounded-[2rem] p-4 sm:p-6 shadow-inner border border-white/10 overflow-hidden">
-                                        <div class="mb-6 relative z-10 text-slate-300 text-sm md:text-base leading-relaxed space-y-4">
-                                            <div class="flex items-center gap-3 mb-2">
-                                                <div class="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-400 to-emerald-600 shadow-lg shadow-green-500/30 flex-shrink-0">
-                                                    <span class="text-lg sm:text-xl font-bold text-white">4</span>
-                                                </div>
-                                                <h3 class="text-xl sm:text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-400 to-teal-400 tracking-tight uppercase">
-                                                    AMBIL SIKAP
-                                                </h3>
-                                            </div>
+                                        <div class="mb-6 relative z-10 text-slate-300 text-xs md:text-sm leading-relaxed space-y-4">
+                                            <h4 class="text-base md:text-lg font-bold text-white mb-3 flex items-center gap-2">
+                                                <span class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center shadow-sm text-xs">4</span> 
+                                                Ambil Sikap
+                                            </h4>
                                             
                                             <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
-                                                <p class="font-bold text-white mb-2">Kamu adalah bendahara kelas yang ditugaskan membeli 30 biji pisang untuk syukuran besok. Uang kas sangat terbatas.</p>
-                                                <ul class="space-y-2 mt-3">
+                                                <p class="font-bold text-white mb-2 text-sm">Kamu adalah bendahara kelas yang ditugaskan membeli 30 biji pisang untuk syukuran besok. Uang kas sangat terbatas.</p>
+                                                <ul class="space-y-2 mt-3 text-xs sm:text-sm">
                                                     <li class="flex items-start gap-2">
                                                         <span class="text-yellow-400 mt-0.5">🍌</span>
                                                         <span><strong>Pilihan 1:</strong> Pisang murah hasil karbit industri. Kulitnya kuning cerah tanpa noda, tetapi aromanya tidak tercium (apek), tekstur buahnya keras, dan rasanya hambar.</span>
@@ -813,39 +814,39 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <p class="font-medium text-center text-white mt-4">Apa yang harus kamu lakukan?<br><span class="text-xs text-slate-400 font-normal">Gunakan 3 kartu sudut pandang di bawah ini untuk merangsang pemikiranmu sebelum mengambil keputusan:</span></p>
+                                            <p class="font-medium text-center text-white mt-4 text-xs sm:text-sm">Apa yang harus kamu lakukan?<br><span class="text-[10px] sm:text-xs text-slate-400 font-normal">Gunakan 3 kartu sudut pandang di bawah ini untuk merangsang pemikiranmu sebelum mengambil keputusan:</span></p>
                                         </div>
                                         
                                         <!-- Interactive Cards Grid -->
-                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mb-8 relative z-10">
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mb-8 relative z-10">
                                             <!-- Card A -->
-                                            <div class="group h-[22rem] sm:h-[24rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
+                                            <div class="group h-[15rem] sm:h-[20rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
                                                 <div class="flip-card-inner relative w-full h-full transform-style-3d shadow-xl rounded-3xl">
                                                     <!-- Front -->
-                                                    <div class="absolute inset-0 bg-gradient-to-br from-red-950 to-slate-900 rounded-3xl p-6 flex flex-col items-center justify-center backface-hidden face-front border border-red-500/30 group-hover:border-red-400/60 transition-all shadow-[0_0_20px_rgba(220,38,38,0.15)] text-center">
+                                                    <div class="absolute inset-0 bg-gradient-to-br from-red-950 to-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center backface-hidden face-front border border-red-500/30 group-hover:border-red-400/60 transition-all shadow-[0_0_20px_rgba(220,38,38,0.15)] text-center">
                                                         <div class="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
                                                             <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 blur-[50px]"></div>
                                                         </div>
-                                                        <span class="bg-red-500/20 text-red-400 text-[10px] font-bold px-3 py-1 rounded-full mb-4 border border-red-500/20 uppercase tracking-widest relative z-10">Opsi A</span>
-                                                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-red-500/10 rounded-full flex items-center justify-center text-3xl sm:text-4xl mb-4 shadow-inner border border-red-500/20 group-hover:scale-110 transition-transform relative z-10">💸</div>
-                                                        <p class="text-sm sm:text-base font-medium text-slate-200 leading-relaxed z-10 px-2 relative">Membeli pisang karbitan industri agar <strong>semua teman</strong> (30 orang) kebagian jatah.</p>
-                                                        <div class="mt-auto flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-red-300 bg-red-950/80 px-4 py-2 rounded-full border border-red-900 animate-pulse relative z-10">
+                                                        <span class="bg-red-500/20 text-red-400 text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full mb-2 sm:mb-4 border border-red-500/20 uppercase tracking-widest relative z-10">Opsi A</span>
+                                                        <div class="w-10 h-10 sm:w-16 sm:h-16 bg-red-500/10 rounded-full flex items-center justify-center text-xl sm:text-3xl mb-2 sm:mb-4 shadow-inner border border-red-500/20 group-hover:scale-110 transition-transform relative z-10">💸</div>
+                                                        <p class="text-[11px] sm:text-sm font-medium text-slate-200 leading-snug sm:leading-relaxed z-10 px-1 sm:px-2 relative">Membeli pisang karbitan industri agar <strong>semua teman</strong> (30 orang) kebagian jatah.</p>
+                                                        <div class="mt-auto flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-semibold text-red-300 bg-red-950/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-red-900 animate-pulse relative z-10">
                                                             <span>🔄 Ketuk untuk analisis</span>
                                                         </div>
                                                     </div>
                                                     <!-- Back -->
-                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]" style="border-top-color: #ef4444;">
+                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-3 sm:p-5 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-red-500/50 shadow-[0_0_20px_rgba(239,68,68,0.2)]" style="border-top-color: #ef4444;">
                                                         <div class="flex-1 overflow-y-auto custom-scrollbar flex flex-col pr-1">
-                                                            <div class="flex items-center gap-2 mb-4 border-b border-slate-700 pb-3">
-                                                                <span class="text-xl">⚖️</span> <span class="text-white font-bold text-sm sm:text-base uppercase tracking-wider">Konsekuensi</span>
+                                                            <div class="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 border-b border-slate-700 pb-1.5 sm:pb-2">
+                                                                <span class="text-base sm:text-lg">⚖️</span> <span class="text-white font-bold text-[11px] sm:text-sm uppercase tracking-wider">Konsekuensi</span>
                                                             </div>
-                                                            <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3 mb-4">
-                                                                <p class="flex items-start gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Uang kas aman, semua teman kebagian tanpa protes kelaparan.</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Kualitas rasa buruk (keras & hambar).</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Menyajikan buah dengan risiko residu beracun.</span></p>
+                                                            <div class="text-[9px] sm:text-xs text-slate-300 leading-snug sm:leading-relaxed space-y-1.5 sm:space-y-2.5 mb-2 sm:mb-3">
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Uang kas aman, semua teman kebagian tanpa protes kelaparan.</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Kualitas rasa buruk (keras & hambar).</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Menyajikan buah dengan risiko residu beracun.</span></p>
                                                             </div>
-                                                            <div class="mt-auto bg-red-500/10 border border-red-500/30 p-3 sm:p-4 rounded-xl">
-                                                                <p class="text-[11px] sm:text-xs font-bold text-red-400 leading-snug text-center italic">
+                                                            <div class="mt-auto bg-red-500/10 border border-red-500/30 p-2 sm:p-3 rounded-xl">
+                                                                <p class="text-[8px] sm:text-[10px] font-bold text-red-400 leading-snug text-center italic">
                                                                     "Apakah menghemat anggaran lebih penting daripada menyajikan makanan yang aman untuk teman-temanmu?"
                                                                 </p>
                                                             </div>
@@ -855,33 +856,33 @@
                                             </div>
 
                                             <!-- Card B -->
-                                            <div class="group h-[22rem] sm:h-[24rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
+                                            <div class="group h-[15rem] sm:h-[20rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
                                                 <div class="flip-card-inner relative w-full h-full transform-style-3d shadow-xl rounded-3xl">
                                                     <!-- Front -->
-                                                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 to-slate-900 rounded-3xl p-6 flex flex-col items-center justify-center backface-hidden face-front border border-emerald-500/30 group-hover:border-emerald-400/60 transition-all shadow-[0_0_20px_rgba(16,185,129,0.15)] text-center">
+                                                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-950 to-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center backface-hidden face-front border border-emerald-500/30 group-hover:border-emerald-400/60 transition-all shadow-[0_0_20px_rgba(16,185,129,0.15)] text-center">
                                                         <div class="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
                                                             <div class="absolute top-0 left-0 w-32 h-32 bg-emerald-500/10 blur-[50px]"></div>
                                                         </div>
-                                                        <span class="bg-emerald-500/20 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-full mb-4 border border-emerald-500/20 uppercase tracking-widest relative z-10">Opsi B</span>
-                                                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-emerald-500/10 rounded-full flex items-center justify-center text-3xl sm:text-4xl mb-4 shadow-inner border border-emerald-500/20 group-hover:scale-110 transition-transform relative z-10">🌿</div>
-                                                        <p class="text-sm sm:text-base font-medium text-slate-200 leading-relaxed z-10 px-2 relative">Membeli pisang matang alami yang <strong>dijamin sehat dan manis</strong>, meskipun jumlahnya terbatas.</p>
-                                                        <div class="mt-auto flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-emerald-300 bg-emerald-950/80 px-4 py-2 rounded-full border border-emerald-900 animate-pulse relative z-10" style="animation-delay: 0.1s;">
+                                                        <span class="bg-emerald-500/20 text-emerald-400 text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full mb-2 sm:mb-4 border border-emerald-500/20 uppercase tracking-widest relative z-10">Opsi B</span>
+                                                        <div class="w-10 h-10 sm:w-16 sm:h-16 bg-emerald-500/10 rounded-full flex items-center justify-center text-xl sm:text-3xl mb-2 sm:mb-4 shadow-inner border border-emerald-500/20 group-hover:scale-110 transition-transform relative z-10">🌿</div>
+                                                        <p class="text-[11px] sm:text-sm font-medium text-slate-200 leading-snug sm:leading-relaxed z-10 px-1 sm:px-2 relative">Membeli pisang matang alami yang <strong>dijamin sehat dan manis</strong>, meskipun jumlahnya terbatas.</p>
+                                                        <div class="mt-auto flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-semibold text-emerald-300 bg-emerald-950/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-emerald-900 animate-pulse relative z-10" style="animation-delay: 0.1s;">
                                                             <span>🔄 Ketuk untuk analisis</span>
                                                         </div>
                                                     </div>
                                                     <!-- Back -->
-                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]" style="border-top-color: #10b981;">
+                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-3 sm:p-5 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.2)]" style="border-top-color: #10b981;">
                                                         <div class="flex-1 overflow-y-auto custom-scrollbar flex flex-col pr-1">
-                                                            <div class="flex items-center gap-2 mb-4 border-b border-slate-700 pb-3">
-                                                                <span class="text-xl">⚖️</span> <span class="text-white font-bold text-sm sm:text-base uppercase tracking-wider">Konsekuensi</span>
+                                                            <div class="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 border-b border-slate-700 pb-1.5 sm:pb-2">
+                                                                <span class="text-base sm:text-lg">⚖️</span> <span class="text-white font-bold text-[11px] sm:text-sm uppercase tracking-wider">Konsekuensi</span>
                                                             </div>
-                                                            <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3 mb-4">
-                                                                <p class="flex items-start gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Kesehatan pangan terjamin.</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Kualitas rasa dan tekstur buah sangat baik.</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Kamu harus menghadapi komplain dari 20 teman yang tidak kebagian jatah.</span></p>
+                                                            <div class="text-[9px] sm:text-xs text-slate-300 leading-snug sm:leading-relaxed space-y-1.5 sm:space-y-2.5 mb-2 sm:mb-3">
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Kesehatan pangan terjamin.</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Kualitas rasa dan tekstur buah sangat baik.</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Kamu harus menghadapi komplain dari 20 teman yang tidak kebagian jatah.</span></p>
                                                             </div>
-                                                            <div class="mt-auto bg-emerald-500/10 border border-emerald-500/30 p-3 sm:p-4 rounded-xl">
-                                                                <p class="text-[11px] sm:text-xs font-bold text-emerald-400 leading-snug text-center italic">
+                                                            <div class="mt-auto bg-emerald-500/10 border border-emerald-500/30 p-2 sm:p-3 rounded-xl">
+                                                                <p class="text-[8px] sm:text-[10px] font-bold text-emerald-400 leading-snug text-center italic">
                                                                     "Apakah kamu berani menghadapi kemarahan teman-temanmu demi menjaga kesehatan yang tidak mereka sadari?"
                                                                 </p>
                                                             </div>
@@ -891,33 +892,33 @@
                                             </div>
 
                                             <!-- Card C -->
-                                            <div class="group h-[22rem] sm:h-[24rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
+                                            <div class="group h-[15rem] sm:h-[20rem] perspective-1000 cursor-pointer" onclick="toggleFlip(this)">
                                                 <div class="flip-card-inner relative w-full h-full transform-style-3d shadow-xl rounded-3xl">
                                                     <!-- Front -->
-                                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-950 to-slate-900 rounded-3xl p-6 flex flex-col items-center justify-center backface-hidden face-front border border-blue-500/30 group-hover:border-blue-400/60 transition-all shadow-[0_0_20px_rgba(59,130,246,0.15)] text-center">
+                                                    <div class="absolute inset-0 bg-gradient-to-br from-blue-950 to-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center backface-hidden face-front border border-blue-500/30 group-hover:border-blue-400/60 transition-all shadow-[0_0_20px_rgba(59,130,246,0.15)] text-center">
                                                         <div class="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
                                                             <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px]"></div>
                                                         </div>
-                                                        <span class="bg-blue-500/20 text-blue-400 text-[10px] font-bold px-3 py-1 rounded-full mb-4 border border-blue-500/20 uppercase tracking-widest relative z-10">Opsi C</span>
-                                                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-blue-500/10 rounded-full flex items-center justify-center text-3xl sm:text-4xl mb-4 shadow-inner border border-blue-500/20 group-hover:scale-110 transition-transform relative z-10">🚰</div>
-                                                        <p class="text-sm sm:text-base font-medium text-slate-200 leading-relaxed z-10 px-2 relative">Membeli pisang murah, tetapi <strong>mencuci bersih</strong> kulitnya dan mencuci tangan usai mengupas.</p>
-                                                        <div class="mt-auto flex items-center gap-2 text-[10px] sm:text-xs font-semibold text-blue-300 bg-blue-950/80 px-4 py-2 rounded-full border border-blue-900 animate-pulse relative z-10" style="animation-delay: 0.2s;">
+                                                        <span class="bg-blue-500/20 text-blue-400 text-[9px] sm:text-[10px] font-bold px-3 py-1 rounded-full mb-2 sm:mb-4 border border-blue-500/20 uppercase tracking-widest relative z-10">Opsi C</span>
+                                                        <div class="w-10 h-10 sm:w-16 sm:h-16 bg-blue-500/10 rounded-full flex items-center justify-center text-xl sm:text-3xl mb-2 sm:mb-4 shadow-inner border border-blue-500/20 group-hover:scale-110 transition-transform relative z-10">🚰</div>
+                                                        <p class="text-[11px] sm:text-sm font-medium text-slate-200 leading-snug sm:leading-relaxed z-10 px-1 sm:px-2 relative">Membeli pisang murah, tetapi <strong>mencuci bersih</strong> kulitnya dan mencuci tangan usai mengupas.</p>
+                                                        <div class="mt-auto flex items-center gap-1.5 sm:gap-2 text-[9px] sm:text-[10px] font-semibold text-blue-300 bg-blue-950/80 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-blue-900 animate-pulse relative z-10" style="animation-delay: 0.2s;">
                                                             <span>🔄 Ketuk untuk analisis</span>
                                                         </div>
                                                     </div>
                                                     <!-- Back -->
-                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-4 sm:p-6 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.2)]" style="border-top-color: #3b82f6;">
+                                                    <div class="absolute inset-0 bg-slate-900 rounded-3xl p-3 sm:p-5 flex flex-col backface-hidden rotate-y-180 text-left border-t-8 border-slate-800 border-x border-b border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.2)]" style="border-top-color: #3b82f6;">
                                                         <div class="flex-1 overflow-y-auto custom-scrollbar flex flex-col pr-1">
-                                                            <div class="flex items-center gap-2 mb-4 border-b border-slate-700 pb-3">
-                                                                <span class="text-xl">⚖️</span> <span class="text-white font-bold text-sm sm:text-base uppercase tracking-wider">Konsekuensi</span>
+                                                            <div class="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 border-b border-slate-700 pb-1.5 sm:pb-2">
+                                                                <span class="text-base sm:text-lg">⚖️</span> <span class="text-white font-bold text-[11px] sm:text-sm uppercase tracking-wider">Konsekuensi</span>
                                                             </div>
-                                                            <div class="text-xs sm:text-sm text-slate-300 leading-relaxed space-y-3 mb-4">
-                                                                <p class="flex items-start gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Semua kebagian dan kamu meminimalkan paparan debu karbit di kulit.</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Secara sains tidak menjamin 100% aman (gas Arsin/Fosfin mungkin sudah terserap jaringan buah).</span></p>
-                                                                <p class="flex items-start gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Rasa tetap hambar.</span></p>
+                                                            <div class="text-[9px] sm:text-xs text-slate-300 leading-snug sm:leading-relaxed space-y-1.5 sm:space-y-2.5 mb-2 sm:mb-3">
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-green-400 font-bold mt-0.5">✓</span> <span>Semua kebagian dan kamu meminimalkan paparan debu karbit di kulit.</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Secara sains tidak menjamin 100% aman (gas Arsin/Fosfin mungkin sudah terserap jaringan buah).</span></p>
+                                                                <p class="flex items-start gap-1.5 sm:gap-2"><span class="text-red-400 font-bold mt-0.5">✗</span> <span>Rasa tetap hambar.</span></p>
                                                             </div>
-                                                            <div class="mt-auto bg-blue-500/10 border border-blue-500/30 p-3 sm:p-4 rounded-xl">
-                                                                <p class="text-[11px] sm:text-xs font-bold text-blue-400 leading-snug text-center italic">
+                                                            <div class="mt-auto bg-blue-500/10 border border-blue-500/30 p-2 sm:p-3 rounded-xl">
+                                                                <p class="text-[8px] sm:text-[10px] font-bold text-blue-400 leading-snug text-center italic">
                                                                     "Apakah mencuci ini solusi pasti, atau hanya sekadar cara meredam rasa bersalahmu karena menyajikan buah berisiko?"
                                                                 </p>
                                                             </div>
@@ -930,25 +931,25 @@
                                         <!-- Conclusion / Input Banner -->
                                         <div class="relative bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl sm:rounded-2xl p-5 border border-slate-600 flex flex-col z-10 mt-4">
                                             <div class="flex items-center gap-3 mb-4">
-                                                <div class="text-2xl flex-shrink-0">✍️</div>
+                                                <div class="text-xl sm:text-2xl flex-shrink-0">✍️</div>
                                                 <div>
-                                                    <h5 class="text-white font-bold text-base uppercase tracking-wider">Tentukan Posisimu</h5>
-                                                    <p class="text-slate-400 text-xs mt-1">Semua punya konsekuensi. Pilihan mana yang akhirnya kamu ambil? Tuliskan alasanmu di bawah ini.</p>
+                                                    <h5 class="text-white font-bold text-base md:text-lg">Tentukan Posisimu</h5>
+                                                    <p class="text-slate-400 text-xs sm:text-sm mt-1">Semua punya konsekuensi. Pilihan mana yang akhirnya kamu ambil? Tuliskan alasanmu di bawah ini.</p>
                                                 </div>
                                             </div>
                                             
                                             <!-- Input Area -->
-                                            <textarea id="sikap-input" oninput="checkSikapInput()" class="w-full bg-slate-950/50 border border-slate-600 rounded-xl p-4 text-white text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-500 resize-none custom-scrollbar" rows="4" placeholder="Ketik keputusan akhirmu di sini..."></textarea>
+                                            <textarea id="sikap-input" oninput="checkSikapInput()" class="w-full bg-slate-950/50 border border-slate-600 rounded-xl p-4 text-white text-xs sm:text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-500 resize-none custom-scrollbar" rows="4" placeholder="Ketik keputusan akhirmu di sini..."></textarea>
                                             
                                             <!-- Submit Button -->
                                             <div class="mt-4 flex justify-end">
-                                                <button id="sikap-submit-btn" disabled onclick="submitSikap()" class="px-6 py-2.5 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg disabled:bg-slate-700 disabled:text-slate-500 disabled:shadow-none disabled:cursor-not-allowed transition-all flex items-center gap-2">
+                                                <button id="sikap-submit-btn" disabled onclick="submitSikap()" class="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg disabled:bg-slate-700 disabled:text-slate-500 disabled:shadow-none disabled:cursor-not-allowed transition-all flex items-center gap-2">
                                                     Selesai <span class="text-lg leading-none">✓</span>
                                                 </button>
                                             </div>
 
                                             <!-- Feedback Message (Hidden initially) -->
-                                            <div id="sikap-feedback" class="hidden mt-4 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl text-emerald-400 text-sm leading-relaxed text-center animate-fade-in-down shadow-inner">
+                                            <div id="sikap-feedback" class="hidden mt-4 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl text-emerald-400 text-xs sm:text-sm leading-relaxed text-center animate-fade-in-down shadow-inner">
                                                 "Terima kasih atas pendapatmu! Pilihanmu menunjukkan caramu menyeimbangkan fakta sains dengan kebutuhan sosial. Tidak ada solusi yang sempurna, tetapi setiap keputusan harus didasari oleh data dan empati."
                                             </div>
                                         </div>
@@ -957,12 +958,24 @@
                             </div>
                             
                             <!-- Stepper Controls (Bottom) -->
-                            <div class="bg-slate-900/50 backdrop-blur-md p-2.5 sm:p-4 border-t border-white/10 flex justify-between items-center z-20 relative rounded-b-[2.5rem]">
-                                <button id="stepper-prev" onclick="prevStep()" class="px-2 py-1.5 sm:px-3 sm:py-2 rounded-md text-[8px] sm:text-[10px] font-bold text-slate-300 bg-slate-800 border border-slate-600 shadow-sm hover:bg-slate-700 hover:text-white transition-all flex items-center gap-1 hidden">
-                                    <span>←</span> <span class="hidden sm:inline">Sebelumnya</span>
+                            <div class="bg-slate-900/50 backdrop-blur-md py-2 px-4 sm:py-2.5 sm:px-6 border-t border-white/10 flex justify-between items-center z-20 relative rounded-b-[2.5rem]">
+                                <!-- Tombol Back (Bentuk Panah Bunder Alit) -->
+                                <button id="stepper-prev" onclick="prevStep()" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-slate-400 bg-slate-800 border border-slate-600 shadow-sm hover:bg-slate-700 hover:text-white transition-all hidden group flex-shrink-0" title="Sebelumnya">
+                                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+                                    </svg>
                                 </button>
-                                <button id="stepper-next" onclick="nextStep()" class="px-2 py-1.5 sm:px-3 sm:py-2 rounded-md text-[8px] sm:text-[10px] font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-[0_0_10px_rgba(239,68,68,0.3)] hover:scale-105 transition-all flex items-center gap-1 ml-auto border border-red-400/50">
-                                    <span id="stepper-next-text">Lanjut ke Bukti Nyata</span> <span>→</span>
+                                
+                                <!-- Teks Indikator di Tengah -->
+                                <div class="flex-1 flex justify-center items-center px-2">
+                                    <span id="stepper-next-text" class="text-[9px] sm:text-[10px] font-bold text-slate-400 tracking-widest uppercase text-center animate-pulse">Lanjut ke Bukti Nyata</span>
+                                </div>
+
+                                <!-- Tombol Next (Bentuk Panah Bunder Alit) -->
+                                <button id="stepper-next" onclick="nextStep()" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-white bg-gradient-to-r from-orange-500 to-red-500 shadow-[0_0_10px_rgba(239,68,68,0.4)] hover:scale-110 transition-all border border-red-400/50 group flex-shrink-0" title="Selanjutnya">
+                                    <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -2212,9 +2225,10 @@
                                                     <div class="bg-slate-800 p-4 rounded-xl border-l-4 border-blue-500">
                                                         <h5 class="text-blue-400 font-bold text-sm uppercase mb-2">TAHAP 1: PEMBENTUKAN GAS</h5>
                                                         <p class="text-xs text-slate-400 mb-2">Di tabung bawah, air diteteskan perlahan ke arah Batu Karbit.</p>
-                                                        <div class="bg-black/40 p-2 rounded w-full overflow-x-auto scroll-container pb-1">
-                                                            <div class="text-green-400 font-mono text-xs md:text-sm text-center w-max mx-auto px-2 whitespace-nowrap">
-                                                                CaC₂ (s) + 2H₂O (l) → <span class="text-yellow-400 font-bold text-base">C₂H₂</span> (g) + Ca(OH)₂ (aq)
+                                                        <!-- Diropea: Ngepas dina 1 baris tanpa scroll -->
+                                                        <div class="bg-black/40 p-2 rounded w-full flex justify-center">
+                                                            <div class="text-green-400 font-mono text-[9px] min-[375px]:text-[10px] sm:text-xs md:text-sm text-center w-full sm:w-max mx-auto px-1 sm:px-2 whitespace-nowrap flex items-center justify-center tracking-tighter sm:tracking-normal">
+                                                                CaC₂ (s) + 2H₂O (l) → <span class="text-yellow-400 font-bold text-[10px] sm:text-base mx-1">C₂H₂</span> (g) + Ca(OH)₂ (aq)
                                                             </div>
                                                         </div>
                                                         <p class="text-xs italic text-slate-500 mt-2">Penjelasan: Reaksi ini menghasilkan gas Etuna (C₂H₂) yang mengalir naik menuju lubang kecil (nosel).</p>
@@ -2222,9 +2236,10 @@
                                                     <div class="bg-slate-800 p-4 rounded-xl border-l-4 border-red-500">
                                                         <h5 class="text-red-400 font-bold text-sm uppercase mb-2">TAHAP 2: PEMBAKARAN (OKSIDASI)</h5>
                                                         <p class="text-xs text-slate-400 mb-2">Gas Etuna yang keluar dari nosel langsung dibakar dengan Oksigen dari udara.</p>
-                                                        <div class="bg-black/40 p-2 rounded w-full overflow-x-auto scroll-container pb-1">
-                                                            <div class="text-orange-400 font-mono text-xs md:text-sm text-center w-max mx-auto px-2 whitespace-nowrap">
-                                                                <span class="text-yellow-400 font-bold text-base">2C₂H₂</span>(g) + 5O₂(g) → 4CO₂(g) + 2H₂O(g) + ENERGI (CAHAYA)
+                                                        <!-- Diropea: Ngaleutikan ukuran, ngahemat rohangan kata "ENERGI" sangkan tetep 1 baris -->
+                                                        <div class="bg-black/40 p-2 rounded w-full flex justify-center overflow-hidden">
+                                                            <div class="text-orange-400 font-mono text-[8.5px] min-[375px]:text-[9px] sm:text-xs md:text-sm text-center w-full sm:w-max mx-auto px-0.5 sm:px-2 whitespace-nowrap flex items-center justify-center tracking-tighter sm:tracking-normal">
+                                                                <span class="text-yellow-400 font-bold text-[9px] sm:text-base mr-0.5 sm:mr-1">2C₂H₂</span>(g) + 5O₂(g) → 4CO₂(g) + 2H₂O(g) + CAHAYA
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2562,7 +2577,18 @@
         function nextBranchedQuiz() { if (currentBranchedQIndex < branchedQuestions.length - 1) { currentBranchedQIndex++; renderBranchedQuestion(); } }
         
         // --- MODAL & ACCORDION ---
-        function openHintModal() { const m = document.getElementById('hint-modal'); m.classList.remove('hidden'); void m.offsetWidth; document.getElementById('hint-backdrop').classList.remove('opacity-0'); const p = document.getElementById('hint-panel'); p.classList.remove('scale-95', 'opacity-0'); p.classList.add('scale-100', 'opacity-100'); }
+        function openHintModal() { 
+            const m = document.getElementById('hint-modal'); 
+            m.classList.remove('hidden'); 
+            void m.offsetWidth; 
+            document.getElementById('hint-backdrop').classList.remove('opacity-0'); 
+            const p = document.getElementById('hint-panel'); 
+            p.classList.remove('scale-95', 'opacity-0'); 
+            p.classList.add('scale-100', 'opacity-100'); 
+            // Reset scroll ke paling atas
+            const scrollContainer = p.querySelector('.scroll-container');
+            if(scrollContainer) scrollContainer.scrollTop = 0;
+        }
         function closeHintModal() { const m = document.getElementById('hint-modal'); document.getElementById('hint-backdrop').classList.add('opacity-0'); const p = document.getElementById('hint-panel'); p.classList.remove('scale-100', 'opacity-100'); p.classList.add('scale-95', 'opacity-0'); setTimeout(() => m.classList.add('hidden'), 300); }
         function toggleIsomerAccordion() { const c = document.getElementById('isomer-content'); const a = document.getElementById('isomer-arrow'); if (c.classList.contains('hidden')) { c.classList.remove('hidden'); setTimeout(() => a.classList.add('rotate-180'), 10); } else { c.classList.add('hidden'); a.classList.remove('rotate-180'); } }
 
@@ -2581,6 +2607,9 @@
             const p = document.getElementById('lamp-panel'); 
             p.classList.remove('scale-95', 'opacity-0'); 
             p.classList.add('scale-100', 'opacity-100'); 
+            // Reset scroll ke paling atas
+            const scrollContainer = p.querySelector('.scroll-container');
+            if(scrollContainer) scrollContainer.scrollTop = 0;
         }
         
         function closeLampModal() { 
@@ -2606,17 +2635,18 @@
         }
 
         // STEPPER LOGIC FOR SSI INVESTIGASI
-        let currentInvestStep = 1;
-        let maxInvestStepReached = 1;
+        window.currentInvestStep = 1;
+        window.maxInvestStepReached = 1;
         const totalInvestSteps = 4;
         
-        function goToStep(step) {
+        // Tambihan parameter preventScroll = false
+        window.goToStep = function(step, preventScroll = false) {
             if(step < 1 || step > totalInvestSteps) return;
             // Mencegah siswa melompat ke step yang belum pernah terbuka
-            if(step > maxInvestStepReached) return;
+            if(step > window.maxInvestStepReached) return;
             
             // Step Titles for next button
-            const stepTitles = ["", "Lanjut ke Bukti Nyata", "Lanjut ke Zona Konflik", "Ambil Sikap", "Selesai"];
+            const stepTitles = ["", "Lanjut ke Bukti Nyata", "Lanjut ke Zona Konflik", "Lanjut ke Ambil Sikap", ""];
             
             // Hide all contents and reset circles
             for(let i=1; i<=totalInvestSteps; i++) {
@@ -2627,31 +2657,38 @@
                 const text = document.getElementById(`step-text-${i}`);
                 const btn = document.getElementById(`step-btn-${i}`);
                 
+                // Mintonkeun text judul utamana di step 1 jeung step nu keur aktip
+                let displayClass = (i === 1 || i === step) ? "" : "hidden sm:block";
+                
                 if(i < step) {
                     // Completed - Dark mode green
-                    circle.className = "w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-white bg-green-500 ring-2 ring-green-500/30 shadow-[0_0_8px_rgba(34,197,94,0.5)] transition-all z-10 relative";
+                    /* Ngatur class bunderan stepper nalika rengse */
+                    circle.className = "w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-white bg-green-500 ring-2 ring-green-500/30 shadow-[0_0_8px_rgba(34,197,94,0.5)] transition-all z-10 relative";
                     circle.innerHTML = "✓";
-                    if(text) { text.className = "text-[8px] sm:text-[10px] font-bold text-green-400 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block"; }
+                    if(text) { text.className = `text-[9px] sm:text-[11px] font-bold text-green-400 absolute top-6 sm:top-8 whitespace-nowrap ${displayClass}`; }
                     if(btn) { btn.classList.remove('cursor-not-allowed', 'opacity-50'); btn.classList.add('cursor-pointer'); }
                 } else if (i === step) {
                     // Active - Dark mode gradient red/orange
-                    circle.className = "w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 ring-2 ring-red-500/30 shadow-[0_0_10px_rgba(239,68,68,0.5)] transition-all scale-110 z-10 relative";
+                    /* Ngatur class bunderan stepper nalika keur aktip */
+                    circle.className = "w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-white bg-gradient-to-r from-orange-500 to-red-500 ring-2 ring-red-500/30 shadow-[0_0_10px_rgba(239,68,68,0.5)] transition-all scale-110 z-10 relative";
                     circle.innerHTML = i;
-                    if(text) { text.className = "text-[8px] sm:text-[10px] font-bold text-red-400 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block"; }
+                    if(text) { text.className = `text-[9px] sm:text-[11px] font-bold text-red-400 absolute top-6 sm:top-8 whitespace-nowrap ${displayClass}`; }
                     if(btn) { btn.classList.remove('cursor-not-allowed', 'opacity-50'); btn.classList.add('cursor-pointer'); }
                 } else {
                     // Pending
-                    if (i <= maxInvestStepReached) {
+                    if (i <= window.maxInvestStepReached) {
                         // Unlocked (Bisa diklik lagi karena sudah pernah dilewati)
-                        circle.className = "w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-slate-300 bg-slate-700 border border-slate-500 ring-2 ring-slate-800 transition-all z-10 relative";
+                        /* Ngatur class bunderan stepper nalika geus kabuka tapi can diteken */
+                        circle.className = "w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-slate-300 bg-slate-700 border border-slate-500 ring-2 ring-slate-800 transition-all z-10 relative";
                         circle.innerHTML = i;
-                        if(text) { text.className = "text-[8px] sm:text-[10px] font-bold text-slate-400 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block"; }
+                        if(text) { text.className = `text-[9px] sm:text-[11px] font-bold text-slate-400 absolute top-6 sm:top-8 whitespace-nowrap ${displayClass}`; }
                         if(btn) { btn.classList.remove('cursor-not-allowed', 'opacity-50'); btn.classList.add('cursor-pointer'); }
                     } else {
                         // Locked (Belum pernah dicapai, wajib klik next)
-                        circle.className = "w-5 h-5 sm:w-6 sm:h-6 text-[8px] sm:text-[10px] rounded-full flex items-center justify-center font-bold text-slate-500 bg-slate-800 border border-slate-700 ring-2 ring-slate-900 transition-all z-10 relative";
+                        /* Ngatur class bunderan stepper nalika masih kakonci */
+                        circle.className = "w-5 h-5 sm:w-7 sm:h-7 text-[9px] sm:text-[11px] rounded-full flex items-center justify-center font-bold text-slate-500 bg-slate-800 border border-slate-700 ring-2 ring-slate-900 transition-all z-10 relative";
                         circle.innerHTML = i;
-                        if(text) { text.className = "text-[8px] sm:text-[10px] font-bold text-slate-600 absolute -bottom-3.5 sm:-bottom-4 whitespace-nowrap hidden sm:block"; }
+                        if(text) { text.className = `text-[9px] sm:text-[11px] font-bold text-slate-600 absolute top-6 sm:top-8 whitespace-nowrap ${displayClass}`; }
                         if(btn) { btn.classList.add('cursor-not-allowed', 'opacity-50'); btn.classList.remove('cursor-pointer'); }
                     }
                 }
@@ -2673,26 +2710,42 @@
             if(step === 1) prevBtn.classList.add('hidden');
             else prevBtn.classList.remove('hidden');
             
-            if(step === totalInvestSteps) nextBtn.classList.add('hidden');
-            else { 
+            if(step === totalInvestSteps) {
+                nextBtn.classList.add('hidden');
+                nextText.textContent = ""; // Kosongkeun teks di step terakhir
+            } else { 
                 nextBtn.classList.remove('hidden');
                 nextText.textContent = stepTitles[step];
             }
             
-            currentInvestStep = step;
-        }
+            window.currentInvestStep = step;
 
-        function nextStep() { 
-            if (currentInvestStep < totalInvestSteps) {
-                const next = currentInvestStep + 1;
-                // Membuka step baru jika belum pernah dicapai
-                if (next > maxInvestStepReached) {
-                    maxInvestStepReached = next;
-                }
-                goToStep(next); 
+            // Fitur Auto-Scroll: ngan ukur jalan upami preventScroll nilai na false
+            if (!preventScroll) {
+                setTimeout(() => {
+                    const stepperBox = document.getElementById('investigasi-stepper');
+                    if (stepperBox) {
+                        stepperBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
             }
         }
-        function prevStep() { goToStep(currentInvestStep - 1); }
+
+        window.nextStep = function() { 
+            if (window.currentInvestStep < totalInvestSteps) {
+                const next = window.currentInvestStep + 1;
+                // Membuka step baru jika belum pernah dicapai
+                if (next > window.maxInvestStepReached) {
+                    window.maxInvestStepReached = next;
+                    // Simpan progress ke database cloud
+                    if (window.saveStepperStateToCloud) {
+                        window.saveStepperStateToCloud(window.maxInvestStepReached);
+                    }
+                }
+                window.goToStep(next); 
+            }
+        }
+        window.prevStep = function() { window.goToStep(window.currentInvestStep - 1); }
 
         // INPUT SIKAP LOGIC
         function checkSikapInput() {
@@ -2723,8 +2776,78 @@
             initStraightChainQuiz(); 
             initBranchedQuiz(); 
             applyConfig(); 
-            goToStep(1); // Initialize stepper
+            // Pasihan nilai 'true' sangkan teu auto-scroll pas muka mimiti
+            window.goToStep(1, true); 
         });
+    </script>
+
+    <!-- FIREBASE INTEGRATION FOR STEPPER PERSISTENCE -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        let db;
+        let userId;
+        let appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        async function initFirebase() {
+            if (typeof __firebase_config === 'undefined') return;
+            
+            try {
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                db = getFirestore(app);
+
+                // Autentikasi Pengguna
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                // Pantau Status Autentikasi & Tarik Data
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        // Ambil progres stepper yang tersimpan
+                        try {
+                            const docRef = doc(db, 'artifacts', appId, 'users', userId, 'stepperState', 'main');
+                            const docSnap = await getDoc(docRef);
+                            
+                            if (docSnap.exists()) {
+                                const data = docSnap.data();
+                                if (data.maxStep && data.maxStep > window.maxInvestStepReached) {
+                                    // Pulihkan langkah yang sudah terbuka (unlocked)
+                                    window.maxInvestStepReached = data.maxStep;
+                                    // Segarkan UI untuk menampilkan status terbuka (tanpa auto-scroll)
+                                    window.goToStep(window.currentInvestStep, true); 
+                                }
+                            }
+                        } catch (e) {
+                            console.error("Error fetching state:", e);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error("Firebase init error:", error);
+            }
+        }
+
+        initFirebase();
+
+        // Export fungsi simpan untuk dipanggil oleh JS utama
+        window.saveStepperStateToCloud = async (step) => {
+            if (db && userId) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'users', userId, 'stepperState', 'main');
+                    await setDoc(docRef, { maxStep: step }, { merge: true });
+                } catch (e) {
+                    console.error("Error saving state:", e);
+                }
+            }
+        };
     </script>
 </body>
 </html>
