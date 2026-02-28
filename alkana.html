@@ -212,8 +212,14 @@
     .flip-card {
       background-color: transparent;
       perspective: 1000px;
-      height: 320px; /* Tinggi disesuaikan agar konten muat */
+      height: 260px; /* Tinggi disesuaikan lebih kecil untuk mobile */
       cursor: pointer;
+    }
+
+    @media (min-width: 640px) {
+      .flip-card {
+        height: 320px; /* Kembali ke tinggi normal untuk tablet/desktop */
+      }
     }
 
     .flip-card-inner {
@@ -239,13 +245,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1.25rem; /* Padding dikurangi sedikit agar konten lebih muat */
+      padding: 1rem; /* Padding dikurangi sedikit agar pas di mobile */
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
       border: 1px solid rgba(255,255,255,0.3);
       /* Fix untuk glitch rendering text saat flip */
       transform: rotateX(0deg); 
       z-index: 1; /* Default z-index */
       overflow: hidden; /* Mencegah konten meluber melewati batas kartu */
+    }
+
+    @media (min-width: 640px) {
+      .flip-card-front, .flip-card-back {
+        padding: 1.25rem; /* Padding normal untuk tablet/desktop */
+      }
     }
 
     /* Back of Card Style - UPDATED to handle gradients per card */
@@ -1379,19 +1391,37 @@
           <div id="tab2" class="tab-content">
             <!-- Header -->
             <div class="card-gradient rounded-3xl p-6 md:p-8 shadow-xl mb-6 hover-card">
-              <div class="flex items-center gap-4 mb-6">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#FFD93D] to-[#FFA500] flex items-center justify-center text-3xl shadow-lg shrink-0">
-                  🔀
+              
+              <!-- Responsive Layout: Flex on Desktop/Tablet, Block on Mobile -->
+              <div class="sm:flex sm:items-center sm:gap-4 mb-2 sm:mb-6">
+                
+                <!-- Mobile Wrapper: Icon & Title -->
+                <div class="flex items-center gap-4 mb-4 sm:mb-0 sm:block sm:w-16 sm:shrink-0">
+                  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-[#FFD93D] to-[#FFA500] flex items-center justify-center text-2xl sm:text-3xl shadow-lg shrink-0">
+                    🔀
+                  </div>
+                  <!-- Title khusus Mobile -->
+                  <div class="sm:hidden flex-1">
+                    <h2 class="text-xl font-extrabold bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#FF6B6B] bg-clip-text text-transparent leading-tight">
+                      Di Balik Performa Bahan Bakar 🚀
+                    </h2>
+                    <div class="h-1.5 w-16 bg-gradient-to-r from-[#FFD93D] to-[#FFA500] rounded-full mt-2"></div>
+                  </div>
                 </div>
-                <div>
-                  <h2 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#FF6B6B] bg-clip-text text-transparent inline-block">
-                    Di Balik Performa Bahan Bakar 🚀
-                  </h2>
-                  <div class="h-1.5 w-24 bg-gradient-to-r from-[#FFD93D] to-[#FFA500] rounded-full mt-1 mb-2"></div>
+
+                <!-- Content Wrapper (Full width di Mobile, Menjorok di Desktop/Tablet) -->
+                <div class="flex-1 min-w-0">
+                  <!-- Title khusus Desktop/Tablet -->
+                  <div class="hidden sm:block">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[#667eea] via-[#764ba2] to-[#FF6B6B] bg-clip-text text-transparent inline-block">
+                      Di Balik Performa Bahan Bakar 🚀
+                    </h2>
+                    <div class="h-1.5 w-24 bg-gradient-to-r from-[#FFD93D] to-[#FFA500] rounded-full mt-1 mb-2"></div>
+                  </div>
                   
                   <!-- Introduction / Context Added Here -->
-                  <div class="bg-blue-50 border-l-4 border-[#667eea] p-4 my-4 rounded-r-xl shadow-sm">
-                    <h4 class="text-lg font-bold text-[#667eea] mb-2">Pertalite atau Pertamax? ⛽</h4>
+                  <div class="bg-blue-50 border-l-4 border-[#667eea] p-4 my-2 sm:my-4 rounded-r-xl shadow-sm">
+                    <h4 class="text-base sm:text-lg font-bold text-[#667eea] mb-2">Pertalite atau Pertamax? ⛽</h4>
                     <p class="text-gray-700 text-sm leading-relaxed mb-2 text-justify">
                       Di SPBU, kita sering dihadapkan pada dua pilihan:
                     </p>
@@ -1404,7 +1434,7 @@
                     </p>
                   </div>
 
-                 <p class="text-gray-700 leading-relaxed mb-4 mt-2"><strong>Isomer</strong> adalah senyawa-senyawa yang memiliki <span class="bg-[#FFD93D]/30 px-2 py-1 rounded-lg font-semibold">rumus molekul sama</span> tetapi <span class="bg-[#4ECDC4]/30 px-2 py-1 rounded-lg font-semibold">struktur berbeda</span>. Pada alkana, isomer mulai muncul dari C₄ (butana).</p>
+                 <p class="text-gray-700 text-sm md:text-base leading-relaxed mb-4 mt-4"><strong>Isomer</strong> adalah senyawa-senyawa yang memiliki <span class="bg-[#FFD93D]/30 px-2 py-1 rounded-lg font-semibold">rumus molekul sama</span> tetapi <span class="bg-[#4ECDC4]/30 px-2 py-1 rounded-lg font-semibold">struktur berbeda</span>. Pada alkana, isomer mulai muncul dari C₄ (butana).</p>
                  
                  <!-- Penjelasan Isomer Rangka (Accordion Style) -->
                  <div class="mt-4">
@@ -1415,10 +1445,10 @@
                      </svg>
                     </div>
                     <div id="isomerAccordionContent" class="accordion-content hidden">
-                     <div class="p-5">
+                     <div class="p-4 md:p-5">
                       <div class="bg-gradient-to-r from-pink-500/5 to-rose-500/5 rounded-xl p-4 mb-4 border-l-4 border-pink-500">
                         <h5 class="font-bold text-pink-600 mb-2 text-sm md:text-base">Apa itu Isomer Rangka?</h5>
-                        <p class="text-gray-700 text-sm leading-relaxed text-justify">
+                        <p class="text-gray-700 text-xs md:text-sm leading-relaxed text-justify">
                           Isomer rangka (skeletal isomerism) terjadi karena <strong>perbedaan susunan kerangka atom karbon</strong>. Meskipun jumlah atom C dan H sama persis, cara mereka tersambung bisa berbeda: memanjang lurus atau membentuk cabang.
                         </p>
                       </div>
@@ -1461,25 +1491,8 @@
                  </div>
 
                 </div>
-               </div>
-            </div> <!-- TUTUP HEADER CARD: Ini adalah penutup yang sebelumnya hilang! -->
-
-               <!-- Desain Baru untuk Pengantar Latihan -->
-               <div class="bg-gradient-to-r from-indigo-50 to-blue-50 border-l-4 border-[#667eea] rounded-r-2xl p-6 mb-8 shadow-md relative overflow-hidden">
-                 <div class="absolute -right-6 -top-6 text-9xl opacity-5 text-[#667eea]">🧩</div>
-                 <div class="relative z-10 flex gap-4">
-                   <div class="text-3xl hidden sm:block">💡</div>
-                   <div>
-                     <p class="text-gray-800 font-bold text-lg mb-2">Menyederhanakan Konsep</p>
-                     <p class="text-gray-700 text-sm leading-relaxed text-justify mb-2">
-                       Molekul bensin (Oktana/C₈) memiliki variasi isomer yang <strong>cukup banyak (18 bentuk!)</strong> 🤯.
-                     </p>
-                     <p class="text-gray-700 text-sm leading-relaxed text-justify">
-                       Supaya tidak pusing dan lebih mudah melihat pola <span class="bg-white px-2 py-0.5 rounded border border-gray-200 font-mono text-sm text-[#667eea]">Lurus vs Bercabang</span>, mari kita latihan dulu dengan molekul yang lebih sederhana: <strong>Butana (C₄)</strong> dan <strong>Pentana (C₅)</strong>. 🚀
-                     </p>
-                   </div>
-                 </div>
-               </div>
+              </div>
+            </div>
                
                <!-- Contoh Isomer Butana -->
                <div class="card-gradient rounded-3xl p-6 md:p-8 shadow-xl mb-6 hover-card">
@@ -2146,7 +2159,7 @@
               </div>
             </div>
             <!-- Sifat Kimia -->
-            <div class="bg-gradient-to-br from-rose-50 via-orange-50 to-white border border-rose-100 rounded-3xl p-6 md:p-8 shadow-xl mb-6 hover-card">
+            <div class="bg-gradient-to-br from-rose-50 via-orange-50 to-white border border-rose-100 rounded-3xl p-6 sm:p-8 shadow-xl mb-6 hover-card">
               <div class="flex items-center gap-4 mb-6 pb-4 border-b-2 border-dashed border-[#e11d48]/30">
                 <div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#FFA500] to-[#e11d48] flex items-center justify-center text-2xl shadow-md text-white shrink-0">
                   🔥
@@ -2158,7 +2171,7 @@
               </div>
               
               <!-- Kalimat Pengantar Sifat Kimia (Baru) -->
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-6 text-justify">
+              <p class="text-sm sm:text-base text-gray-700 leading-relaxed mb-6 text-justify">
                 Sifat kimia alkana ditentukan oleh ikatan tunggalnya yang stabil dan jenuh. Hal ini membuat alkana cenderung sulit bereaksi (parafin), kecuali melalui beberapa reaksi berikut ini:
               </p>
 
@@ -2168,112 +2181,113 @@
                 <!-- 1. Reaksi Pembakaran -->
                 <div class="accordion-item bg-white rounded-xl overflow-hidden border border-rose-100 shadow-sm">
                   <div id="sifatKimiaHeader1" class="accordion-header bg-gradient-to-r from-[#FFA500]/10 to-[#e11d48]/10 p-3 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('sifatKimiaContent1')">
-                    <h4 class="font-bold text-[#e11d48] text-base md:text-lg">1. Reaksi Pembakaran (Oksidasi)</h4>
+                    <h4 class="font-bold text-[#e11d48] text-base sm:text-lg">1. Reaksi Pembakaran (Oksidasi)</h4>
                     <svg id="sifatKimiaArrow1" class="w-6 h-6 text-[#e11d48] transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                   <div id="sifatKimiaContent1" class="accordion-content hidden">
-                    <div class="p-4">
+                    <div class="p-3 sm:p-4">
                       <!-- Pembakaran Sempurna -->
-                      <div class="bg-gradient-to-r from-[#7FD8BE]/20 to-[#4ECDC4]/20 rounded-xl p-5 mb-4">
-                        <h5 class="font-bold text-[#4ECDC4] text-sm md:text-base mb-3">✅ Pembakaran Sempurna</h5>
-                        <p class="text-sm md:text-base text-gray-700 mb-3">Terjadi saat <strong>oksigen (O₂) cukup</strong>. Menghasilkan <strong>CO₂</strong> dan <strong>H₂O</strong> + Energi (panas)</p>
-                        <div class="bg-white rounded-xl p-4 mb-4 overflow-x-auto">
-                          <p class="text-xs md:text-sm text-gray-600 mb-3"><strong>Contoh: Metana (CH₄)</strong></p>
+                      <div class="bg-gradient-to-r from-[#7FD8BE]/20 to-[#4ECDC4]/20 rounded-xl p-4 sm:p-5 mb-4">
+                        <h5 class="font-bold text-[#4ECDC4] text-sm sm:text-base mb-3">✅ Pembakaran Sempurna</h5>
+                        <p class="text-sm sm:text-base text-gray-700 mb-3">Terjadi saat <strong>oksigen (O₂) cukup</strong>. Menghasilkan <strong>CO₂</strong> dan <strong>H₂O</strong> + Energi (panas)</p>
+                        <!-- Menghilangkan overflow-x-auto agar tidak scroll horizontal -->
+                        <div class="bg-white rounded-xl p-3.5 sm:p-4 mb-4">
+                          <p class="text-xs sm:text-sm text-gray-600 mb-3"><strong>Contoh: Metana (CH₄)</strong></p>
                           
-                          <!-- Persamaan Reaksi Rapih -->
-                          <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 min-w-max">
+                          <!-- Persamaan Reaksi 1 Baris di HP -->
+                          <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 w-full tracking-tight sm:tracking-normal">
                             <div class="flex flex-col items-center">
                               <span class="font-bold">CH<sub>4</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Metana</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Metana</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">2O<sub>2</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Oksigen</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Oksigen</span>
                             </div>
-                            <div class="pt-0.5 font-bold">→</div>
+                            <div class="font-bold">→</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">CO<sub>2</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Karbon Dioksida</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Karbon<br class="sm:hidden"> Dioksida</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">2H<sub>2</sub>O<small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Uap Air</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Uap<br class="sm:hidden"> Air</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold text-orange-500">Energi</span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Panas</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Panas</span>
                             </div>
                           </div>
 
                         </div>
-                        <div class="bg-[#4ECDC4]/10 border-l-4 border-[#4ECDC4] rounded-r-xl p-4 shadow-sm">
-                          <p class="text-xs md:text-sm text-gray-700"><strong>💡 Manfaat:</strong> Ini adalah reaksi yang terjadi di kompor gas, mesin kendaraan, dan pembangkit listrik!</p>
+                        <div class="bg-[#4ECDC4]/10 border-l-4 border-[#4ECDC4] rounded-r-lg p-3.5 sm:p-4 shadow-sm">
+                          <p class="text-xs sm:text-sm text-gray-700"><strong>💡 Manfaat:</strong> Ini adalah reaksi yang terjadi di kompor gas, mesin kendaraan, dan pembangkit listrik!</p>
                         </div>
                       </div>
                       <!-- Pembakaran Tidak Sempurna -->
-                      <div class="bg-gradient-to-r from-[#ff6363]/20 to-[#FFA500]/20 rounded-xl p-5">
-                        <h5 class="font-bold text-[#ff6363] text-sm md:text-base mb-3">⚠️ Pembakaran Tidak Sempurna</h5>
-                        <p class="text-sm md:text-base text-gray-700 mb-3">Terjadi saat <strong>oksigen (O₂) kurang/terbatas</strong>. Menghasilkan <strong>CO</strong> (karbon monoksida) atau <strong>C</strong> (jelaga hitam)</p>
-                        <div class="bg-white rounded-xl p-4 mb-3 overflow-x-auto">
-                          <p class="text-xs md:text-sm text-gray-600 mb-4"><strong>Contoh Reaksi 1 (Menghasilkan CO):</strong></p>
+                      <div class="bg-gradient-to-r from-[#ff6363]/20 to-[#FFA500]/20 rounded-xl p-4 sm:p-5">
+                        <h5 class="font-bold text-[#ff6363] text-sm sm:text-base mb-3">⚠️ Pembakaran Tidak Sempurna</h5>
+                        <p class="text-sm sm:text-base text-gray-700 mb-3">Terjadi saat <strong>oksigen (O₂) kurang/terbatas</strong>. Menghasilkan <strong>CO</strong> (karbon monoksida) atau <strong>C</strong> (jelaga hitam)</p>
+                        <div class="bg-white rounded-xl p-3.5 sm:p-4 mb-3">
+                          <p class="text-xs sm:text-sm text-gray-600 mb-4"><strong>Contoh Reaksi 1 (Menghasilkan CO):</strong></p>
                           
-                          <!-- Reaksi CO -->
-                          <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 mb-6 min-w-max">
+                          <!-- Reaksi CO 1 Baris di HP -->
+                          <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 mb-6 w-full tracking-tight sm:tracking-normal">
                             <div class="flex flex-col items-center">
                               <span class="font-bold">2CH<sub>4</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Metana</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Metana</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">3O<sub>2</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Oksigen (Terbatas)</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Oksigen <br class="sm:hidden">(Terbatas)</span>
                             </div>
-                            <div class="pt-0.5 font-bold">→</div>
+                            <div class="font-bold">→</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold text-red-600">2CO<small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-red-500 font-sans font-bold">Karbon Monoksida</span>
+                              <span class="text-[9px] sm:text-xs text-red-500 font-sans font-bold mt-0.5 text-center leading-tight">Karbon <br class="sm:hidden">Monoksida</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">4H<sub>2</sub>O<small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Uap Air</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Uap <br class="sm:hidden">Air</span>
                             </div>
                           </div>
 
-                          <p class="text-xs md:text-sm text-gray-600 mb-4"><strong>Contoh Reaksi 2 (Menghasilkan Jelaga):</strong></p>
+                          <p class="text-xs sm:text-sm text-gray-600 mb-3"><strong>Contoh Reaksi 2 (Menghasilkan Jelaga):</strong></p>
                           
-                          <!-- Reaksi Jelaga -->
-                          <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 min-w-max">
+                          <!-- Reaksi Jelaga 1 Baris di HP -->
+                          <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 w-full tracking-tight sm:tracking-normal">
                             <div class="flex flex-col items-center">
                               <span class="font-bold">CH<sub>4</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Metana</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Metana</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">O<sub>2</sub><small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Oksigen (Sangat Kurang)</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Oksigen <br class="sm:hidden">(Kurang)</span>
                             </div>
-                            <div class="pt-0.5 font-bold">→</div>
+                            <div class="font-bold">→</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold text-gray-900">C<small>(s)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-600 font-sans font-bold">Karbon (Jelaga)</span>
+                              <span class="text-[9px] sm:text-xs text-gray-600 font-sans font-bold mt-0.5 text-center leading-tight">Karbon <br class="sm:hidden">(Jelaga)</span>
                             </div>
-                            <div class="pt-0.5 font-bold">+</div>
+                            <div class="font-bold">+</div>
                             <div class="flex flex-col items-center">
                               <span class="font-bold">2H<sub>2</sub>O<small>(g)</small></span>
-                              <span class="text-[10px] md:text-xs text-gray-500 font-sans">Uap Air</span>
+                              <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Uap <br class="sm:hidden">Air</span>
                             </div>
                           </div>
 
                         </div>
-                        <div class="bg-[#ff6363]/10 border-l-4 border-[#ff6363] rounded-r-xl p-4 shadow-sm">
-                          <p class="text-xs md:text-sm text-gray-700"><strong>⚠️ BAHAYA:</strong> Gas CO <strong>tidak berwarna, tidak berbau</strong>, tetapi <strong>sangat beracun</strong>! Mengikat hemoglobin darah lebih kuat dari O₂, menyebabkan keracunan bahkan kematian!</p>
+                        <div class="bg-[#ff6363]/10 border-l-4 border-[#ff6363] rounded-r-lg p-3.5 sm:p-4 shadow-sm">
+                          <p class="text-xs sm:text-sm text-gray-700"><strong>⚠️ BAHAYA:</strong> Gas CO <strong>tidak berwarna, tidak berbau</strong>, tetapi <strong>sangat beracun</strong>! Mengikat hemoglobin darah lebih kuat dari O₂, menyebabkan keracunan bahkan kematian!</p>
                         </div>
                         
-                        <!-- Pindah Posisi: Pop-up Button Bahaya CO (Updated Design) -->
+                        <!-- Pindah Posisi: Pop-up Button Bahaya CO -->
                         <div class="mt-4">
                           <button onclick="openPopup('coPopup')" class="w-full relative group text-left transition-all duration-300 hover:scale-[1.02]">
                             
@@ -2283,20 +2297,20 @@
                             </div>
 
                             <!-- Content Container -->
-                            <div class="relative z-10 p-4 flex items-center gap-4">
-                              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl group-hover:scale-110 transition-transform backdrop-blur-sm shrink-0 shadow-inner">
+                            <div class="relative z-10 p-3 sm:p-4 flex items-center gap-3 sm:gap-4">
+                              <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center text-xl sm:text-2xl group-hover:scale-110 transition-transform backdrop-blur-sm shrink-0 shadow-inner">
                                 🕵️‍♂️
                               </div>
                               <div>
-                                <h3 class="text-lg font-bold text-white tracking-wide pr-4">Misteri Tol Pejagan: Tidur Pulas Berujung Maut?</h3>
-                                <p class="text-indigo-100 text-xs mt-1 font-medium">Klik untuk mengungkap kasus "Silent Killer" di kabin mobil!</p>
+                                <h3 class="text-base sm:text-lg font-bold text-white tracking-wide pr-2 sm:pr-4">Misteri Tol Pejagan: Tidur Pulas Berujung Maut?</h3>
+                                <p class="text-indigo-100 text-[10px] sm:text-xs mt-1 font-medium leading-snug">Klik untuk mengungkap kasus "Silent Killer" di kabin mobil!</p>
                               </div>
-                              <div class="ml-auto text-white text-xl group-hover:translate-x-2 transition-transform bg-white/10 rounded-full w-8 h-8 flex items-center justify-center">
+                              <div class="ml-auto text-white text-lg sm:text-xl group-hover:translate-x-2 transition-transform bg-white/10 rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0">
                                 →
                               </div>
                             </div>
 
-                            <!-- Notification Dot (Outside/Overlapping) -->
+                            <!-- Notification Dot -->
                             <span class="absolute -top-3 -right-3 flex h-7 w-7 z-20">
                               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                               <span class="relative inline-flex rounded-full h-7 w-7 bg-red-500 border-2 border-white"></span>
@@ -2312,71 +2326,71 @@
                 <!-- 2. Reaksi Substitusi -->
                 <div class="accordion-item bg-white rounded-xl overflow-hidden border border-rose-100 shadow-sm">
                   <div id="sifatKimiaHeader2" class="accordion-header bg-gradient-to-r from-[#667eea]/10 to-[#764ba2]/10 p-3 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('sifatKimiaContent2')">
-                    <h4 class="font-bold text-[#667eea] text-base md:text-lg">2. Reaksi Substitusi (Halogenasi)</h4>
+                    <h4 class="font-bold text-[#667eea] text-base sm:text-lg">2. Reaksi Substitusi (Halogenasi)</h4>
                     <svg id="sifatKimiaArrow2" class="w-6 h-6 text-[#667eea] transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                   <div id="sifatKimiaContent2" class="accordion-content hidden">
-                    <div class="p-4">
-                      <div class="bg-gradient-to-r from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-5">
-                        <p class="text-sm md:text-base text-gray-700 mb-4">Atom <strong>hidrogen (H)</strong> pada alkana digantikan oleh atom <strong>halogen</strong> (Cl, Br, F, I). Reaksi memerlukan <strong>cahaya UV</strong> atau <strong>panas</strong>.</p>
-                        <div class="bg-white rounded-xl p-4 mb-4 overflow-x-auto">
-                          <p class="text-xs md:text-sm text-gray-600 mb-3"><strong>Contoh: Metana + Klorin</strong></p>
+                    <div class="p-3 sm:p-4">
+                      <div class="bg-gradient-to-r from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-4 sm:p-5">
+                        <p class="text-sm sm:text-base text-gray-700 mb-4">Atom <strong>hidrogen (H)</strong> pada alkana digantikan oleh atom <strong>halogen</strong> (Cl, Br, F, I). Reaksi memerlukan <strong>cahaya UV</strong> atau <strong>panas</strong>.</p>
+                        <div class="bg-white rounded-xl p-3.5 sm:p-4 mb-4">
+                          <p class="text-xs sm:text-sm text-gray-600 mb-3"><strong>Contoh: Metana + Klorin</strong></p>
                           
                           <div class="space-y-6">
                             <!-- Tahap 1 -->
-                            <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 min-w-max">
+                            <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 w-full tracking-tight sm:tracking-normal">
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">CH<sub>4</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Metana</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Metana</span>
                               </div>
-                              <div class="pt-0.5 font-bold">+</div>
+                              <div class="font-bold">+</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">Cl<sub>2</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Klorin</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Klorin</span>
                               </div>
-                              <div class="flex flex-col items-center px-1">
+                              <div class="flex flex-col items-center px-0.5">
                                 <span class="font-bold">→</span>
-                                <span class="text-[9px] text-[#667eea] font-sans -mt-1">Sinar UV</span>
+                                <span class="text-[8px] sm:text-[9px] text-[#667eea] font-sans -mt-1">Sinar UV</span>
                               </div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold text-[#667eea]">CH<sub>3</sub>Cl<small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans font-bold">Klorometana</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans font-bold mt-0.5 text-center leading-tight">Kloro<br class="sm:hidden">metana</span>
                               </div>
-                              <div class="pt-0.5 font-bold">+</div>
+                              <div class="font-bold">+</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">HCl<small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Hidrogen Klorida</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Hidrogen <br class="sm:hidden">Klorida</span>
                               </div>
                             </div>
 
                             <!-- Tahap 2 -->
-                            <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 min-w-max pt-2 border-t border-dashed border-gray-200">
+                            <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 pt-3 border-t border-dashed border-gray-200 w-full tracking-tight sm:tracking-normal">
                               <div class="flex flex-col items-center">
                                 <span class="font-bold text-[#667eea]">CH<sub>3</sub>Cl<small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Klorometana</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Kloro<br class="sm:hidden">metana</span>
                               </div>
-                              <div class="pt-0.5 font-bold">+</div>
+                              <div class="font-bold">+</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">Cl<sub>2</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Klorin</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Klorin</span>
                               </div>
-                              <div class="pt-0.5 font-bold">→</div>
+                              <div class="font-bold">→</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold text-[#764ba2]">CH<sub>2</sub>Cl<sub>2</sub><small>(l)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans font-bold">Diklorometana</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans font-bold mt-0.5 text-center leading-tight">Dikloro<br class="sm:hidden">metana</span>
                               </div>
-                              <div class="pt-0.5 font-bold">+</div>
+                              <div class="font-bold">+</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">HCl<small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Hidrogen Klorida</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Hidrogen <br class="sm:hidden">Klorida</span>
                               </div>
                             </div>
                           </div>
                           
-                          <p class="text-center text-[10px] md:text-xs text-gray-500 mt-4 italic">(Reaksi dapat berlanjut hingga semua atom H terganti)</p>
+                          <p class="text-center text-[10px] sm:text-xs text-gray-500 mt-4 italic">(Reaksi dapat berlanjut hingga semua atom H terganti)</p>
                         </div>
-                        <div class="bg-[#667eea]/10 border-l-4 border-[#667eea] rounded-r-xl p-4 shadow-sm">
-                          <p class="text-xs md:text-sm text-gray-700"><strong>💡 Produk Penting:</strong> Klorometana (CH₃Cl), Triklorometana (CHCl₃), dll. digunakan sebagai <strong>pelarut industri</strong>.</p>
+                        <div class="bg-[#667eea]/10 border-l-4 border-[#667eea] rounded-r-lg p-3.5 sm:p-4 shadow-sm">
+                          <p class="text-xs sm:text-sm text-gray-700"><strong>💡 Produk Penting:</strong> Klorometana (CH₃Cl), Triklorometana (CHCl₃), dll. digunakan sebagai <strong>pelarut industri</strong>.</p>
                         </div>
                       </div>
                     </div>
@@ -2386,41 +2400,41 @@
                 <!-- 3. Reaksi Eliminasi -->
                 <div class="accordion-item bg-white rounded-xl overflow-hidden border border-rose-100 shadow-sm">
                   <div id="sifatKimiaHeader3" class="accordion-header bg-gradient-to-r from-[#e11d48]/10 to-[#FFA500]/10 p-3 flex items-center justify-between cursor-pointer" onclick="toggleAccordion('sifatKimiaContent3')">
-                    <h4 class="font-bold text-[#e11d48] text-base md:text-lg">3. Reaksi Eliminasi</h4>
-                    <svg id="sifatKimiaArrow3" class="w-6 h-6 text-[#e11d48] transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                    <h4 class="font-bold text-[#e11d48] text-base sm:text-lg">3. Reaksi Eliminasi</h4>
+                    <svg id="sifatKimiaArrow3" class="w-6 h-6 text-[#e11d48] transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                   </div>
                   <div id="sifatKimiaContent3" class="accordion-content hidden">
-                    <div class="p-4">
-                      <div class="bg-gradient-to-r from-[#e11d48]/10 to-[#FFA500]/10 rounded-xl p-5">
-                        <p class="text-sm md:text-base text-gray-700 mb-4">Reaksi penghilangan atom-atom dari molekul alkana sehingga terbentuk <strong>ikatan rangkap (alkena)</strong>. Reaksi ini biasanya terjadi pada suhu tinggi (termal) atau menggunakan katalis.</p>
+                    <div class="p-3 sm:p-4">
+                      <div class="bg-gradient-to-r from-[#e11d48]/10 to-[#FFA500]/10 rounded-xl p-4 sm:p-5">
+                        <p class="text-sm sm:text-base text-gray-700 mb-4">Reaksi penghilangan atom-atom dari molekul alkana sehingga terbentuk <strong>ikatan rangkap (alkena)</strong>. Reaksi ini biasanya terjadi pada suhu tinggi (termal) atau menggunakan katalis.</p>
                         
-                        <div class="bg-white rounded-xl p-4 mb-4 overflow-x-auto">
-                          <p class="text-xs md:text-sm text-gray-600 mb-3"><strong>Contoh: Dehidrogenasi Etana</strong></p>
+                        <div class="bg-white rounded-xl p-3.5 sm:p-4 mb-4">
+                          <p class="text-xs sm:text-sm text-gray-600 mb-3"><strong>Contoh: Dehidrogenasi Etana</strong></p>
                           
-                          <div class="flex flex-wrap items-start justify-center gap-2 md:gap-4 font-mono text-sm md:text-base text-gray-800 min-w-max">
+                          <div class="flex items-start justify-center gap-1 sm:gap-4 font-mono text-xs sm:text-base text-gray-800 w-full tracking-tight sm:tracking-normal">
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">CH<sub>3</sub>-CH<sub>3</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Etana (Jenuh)</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5">Etana (Jenuh)</span>
                               </div>
-                              <div class="flex flex-col items-center px-2">
+                              <div class="flex flex-col items-center px-1">
                                 <span class="font-bold">→</span>
-                                <span class="text-[9px] text-[#e11d48] font-sans -mt-1 text-center">500°C<br>Katalis</span>
+                                <span class="text-[8px] sm:text-[9px] text-[#e11d48] font-sans -mt-1 text-center">500°C<br>Katalis</span>
                               </div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold text-[#e11d48]">CH<sub>2</sub>=CH<sub>2</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans font-bold">Etena (Tak Jenuh)</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans font-bold mt-0.5 text-center leading-tight">Etena <br class="sm:hidden">(Tak Jenuh)</span>
                               </div>
-                              <div class="pt-0.5 font-bold">+</div>
+                              <div class="font-bold">+</div>
                               <div class="flex flex-col items-center">
                                 <span class="font-bold">H<sub>2</sub><small>(g)</small></span>
-                                <span class="text-[10px] md:text-xs text-gray-500 font-sans">Gas Hidrogen</span>
+                                <span class="text-[9px] sm:text-xs text-gray-500 font-sans mt-0.5 text-center leading-tight">Gas <br class="sm:hidden">Hidrogen</span>
                               </div>
                           </div>
 
                         </div>
 
-                        <div class="bg-[#e11d48]/10 border-l-4 border-[#e11d48] rounded-r-xl p-4 shadow-sm">
-                          <p class="text-xs md:text-sm text-gray-700"><strong>💡 <em>Cracking</em> (Perengkahan):</strong> Industri minyak bumi menggunakan reaksi eliminasi untuk memecah alkana rantai panjang menjadi alkana rantai pendek (bensin) dan alkena.</p>
+                        <div class="bg-[#e11d48]/10 border-l-4 border-[#e11d48] rounded-r-xl p-3.5 sm:p-4 shadow-sm">
+                          <p class="text-xs sm:text-sm text-gray-700"><strong>💡 <em>Cracking</em> (Perengkahan):</strong> Industri minyak bumi menggunakan reaksi eliminasi untuk memecah alkana rantai panjang menjadi alkana rantai pendek (bensin) dan alkena.</p>
                         </div>
                       </div>
                     </div>
@@ -2530,7 +2544,7 @@
   
   <!-- POPUP: Bahaya CO -->
   <div id="coPopup" class="popup-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="popup-content bg-white rounded-3xl max-w-2xl w-full max-h-[90%] overflow-auto shadow-2xl flex flex-col">
+    <div class="popup-content bg-white rounded-3xl max-w-2xl lg:max-w-4xl xl:max-w-5xl w-full max-h-[90%] overflow-auto shadow-2xl flex flex-col">
       <!-- Header with Gradient (Reduced Size) -->
       <div class="bg-gradient-to-r from-[#ff6363] to-[#FFA500] p-4 rounded-t-3xl shrink-0">
         <div class="flex justify-between items-center">
@@ -2628,8 +2642,8 @@
 
             <!-- Tombol Next -->
             <div class="text-center pb-2">
-                <button onclick="nextCoStep()" class="interactive-btn bg-gradient-to-r from-[#ff6363] to-[#e11d48] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 mx-auto w-full md:w-auto">
-                    🕵️‍♂️ Analisis Kejadian <span class="text-xl">→</span>
+                <button onclick="nextCoStep()" class="interactive-btn bg-gradient-to-r from-[#ff6363] to-[#e11d48] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-bold shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2 mx-auto w-full sm:w-auto text-sm sm:text-base">
+                    🕵️‍♂️ Analisis Kejadian <span class="text-lg sm:text-xl">→</span>
                 </button>
             </div>
         </div>
@@ -2645,10 +2659,22 @@
                 <p><strong>3.</strong> Akibatnya, terjadi pembakaran alkana (bensin) yang <strong>TIDAK SEMPURNA</strong>.</p>
                 <p><strong>4.</strong> Hasil akhir pembakaran ini bukan lagi Karbon Dioksida (CO₂), melainkan gas beracun <span class="bg-yellow-200 px-1 rounded font-semibold text-gray-800">Karbon Monoksida (CO)</span>.</p>
               </div>
-              <div class="mt-4 bg-white rounded-xl p-4 border border-indigo-100 shadow-sm">
+              
+              <!-- Persamaan Reaksi (Diperbarui untuk 1 baris tanpa scroll di HP) -->
+              <div class="mt-4 bg-white rounded-xl p-3 sm:p-4 border border-indigo-100 shadow-sm w-full">
                 <p class="text-center font-mono text-xs text-gray-500 mb-2">Reaksi Kimia:</p>
-                <p class="text-center font-mono text-sm text-[#ff6363] font-bold break-words">2C<sub>8</sub>H<sub>18</sub><small class="text-gray-400">(l)</small> + 17O<sub>2</sub><small class="text-gray-400">(g)</small> → 16CO<small class="text-gray-400">(g)</small> + 18H<sub>2</sub>O<small class="text-gray-400">(g)</small></p>
-                <p class="text-center text-[10px] text-gray-400 mt-1">(Oktana dalam bensin + oksigen terbatas)</p>
+                
+                <div class="flex items-center justify-center gap-0.5 sm:gap-2 font-mono text-xs sm:text-sm text-[#ff6363] font-bold w-full whitespace-nowrap tracking-tight sm:tracking-normal">
+                  <span>2C<sub>8</sub>H<sub>18</sub><small class="text-gray-400 text-[9px] sm:text-xs">(l)</small></span>
+                  <span class="text-gray-600">+</span>
+                  <span>17O<sub>2</sub><small class="text-gray-400 text-[9px] sm:text-xs">(g)</small></span>
+                  <span class="text-gray-600">→</span>
+                  <span>16CO<small class="text-gray-400 text-[9px] sm:text-xs">(g)</small></span>
+                  <span class="text-gray-600">+</span>
+                  <span>18H<sub>2</sub>O<small class="text-gray-400 text-[9px] sm:text-xs">(g)</small></span>
+                </div>
+                
+                <p class="text-center text-[10px] sm:text-xs text-gray-400 mt-2 leading-tight">(Oktana dalam bensin + oksigen terbatas)</p>
               </div>
             </div>
 
@@ -2681,8 +2707,8 @@
 
             <!-- Tombol Navigasi Slide 2 ke 3 -->
             <div class="text-center pt-2">
-                <button onclick="nextCoStep()" class="interactive-btn bg-[#ff6363] hover:bg-[#e11d48] text-white px-8 py-3 rounded-full font-bold shadow-md transition-all inline-flex items-center gap-2 text-sm">
-                    Zona Konflik <span class="text-lg">→</span>
+                <button onclick="nextCoStep()" class="interactive-btn bg-[#ff6363] hover:bg-[#e11d48] text-white px-6 py-2.5 sm:px-8 sm:py-3 rounded-full font-bold shadow-md transition-all inline-flex items-center gap-2 text-xs sm:text-sm">
+                    Zona Konflik <span class="text-base sm:text-lg">→</span>
                 </button>
             </div>
         </div>
@@ -2760,11 +2786,12 @@
 
             <!-- Tombol Next to Step 4 -->
             <div class="mt-8 text-center pb-2">
-                <button onclick="nextCoStep()" class="interactive-btn bg-[#ff6363] hover:bg-[#e11d48] text-white font-bold px-8 py-3 rounded-full shadow-md transition-all inline-flex items-center gap-2 text-sm">
-                    Ambil Sikap <span class="text-lg">→</span>
+                <button onclick="nextCoStep()" class="interactive-btn bg-[#ff6363] hover:bg-[#e11d48] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full shadow-md transition-all inline-flex items-center gap-2 text-xs sm:text-sm">
+                    Ambil Sikap <span class="text-base sm:text-lg">→</span>
                 </button>
             </div>
         </div>
+
         <!-- SLIDE 4: AMBIL SIKAP -->
         <div id="co-step-4" class="hidden content-slide">
             <div class="text-center mb-6">
@@ -2872,10 +2899,10 @@
             <div class="mt-8 mb-6 p-6 bg-white border border-gray-200 rounded-2xl shadow-sm">
                 <h4 class="text-center font-bold text-gray-800 mb-4 text-sm md:text-base">Semua punya konsekuensi. Pilihan mana yang akhirnya kamu ambil?</h4>
                 <label class="block text-sm font-bold text-gray-700 mb-2">📝 Tuliskan Keputusanmu:</label>
-                <textarea id="opinionInput" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all text-sm mb-4 resize-none outline-none" rows="3" placeholder='Setelah mempertimbangkan berbagai sudut pandang di atas, keputusan mandiri yang akan saya ambil adalah... karena...'></textarea>
+                <textarea id="opinionInput" class="w-full p-2.5 sm:p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all text-xs sm:text-sm placeholder:text-[11px] sm:placeholder:text-sm mb-4 resize-none outline-none" rows="3" placeholder='Setelah mempertimbangkan berbagai sudut pandang di atas, keputusan mandiri yang akan saya ambil adalah... karena...'></textarea>
                 
                 <div class="text-center">
-                    <button onclick="submitOpinion()" id="submitOpinionBtn" class="bg-gray-300 text-white px-6 py-2 rounded-lg text-sm font-bold cursor-not-allowed transition-all duration-300" disabled>Selesai</button>
+                    <button onclick="submitOpinion()" id="submitOpinionBtn" class="bg-gray-300 text-white px-4 py-1.5 sm:px-6 sm:py-2 rounded-lg text-xs sm:text-sm font-bold cursor-not-allowed transition-all duration-300" disabled>Selesai</button>
                 </div>
 
                 <div id="opinionFeedback" class="hidden mt-4 bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg shadow-sm text-left">
@@ -2887,7 +2914,7 @@
 
             <!-- Tombol Tutup Akhir (Initially Hidden) -->
             <div id="finalCoButtonContainer" class="hidden mt-2 text-center pb-2 content-slide">
-                <button onclick="closePopup('coPopup')" class="interactive-btn bg-gradient-to-r from-[#ff6363] to-[#FFA500] text-white font-bold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"> 
+                <button onclick="closePopup('coPopup')" class="interactive-btn bg-gradient-to-r from-[#ff6363] to-[#FFA500] text-white font-bold px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"> 
                     SAYA PAHAM 🧠 
                 </button>
             </div>
@@ -3252,12 +3279,25 @@
     }
 
     function toggleSidebar() { document.getElementById('sidebar').classList.toggle('sidebar-collapsed'); }
+    
     function openPopup(id) { 
         const p = document.getElementById(id);
         p.classList.remove('hidden'); p.classList.add('flex');
         document.body.style.overflow = 'hidden';
-        if(id === 'coPopup') resetCoStepper(); // Reset slide to 1 every time opened
+        
+        // Kembalikan posisi scroll popup ke paling atas
+        const popupContent = p.querySelector('.popup-content');
+        if(popupContent) {
+            popupContent.scrollTop = 0;
+        }
+
+        if(id === 'coPopup') {
+            // Buka di langkah terakhir yang berhasil dicapai pengguna
+            currentCoStep = maxCoStep;
+            updateCoStepper(); 
+        }
     }
+    
     function closePopup(id) { 
         const p = document.getElementById(id);
         p.classList.add('hidden'); p.classList.remove('flex');
@@ -3269,9 +3309,9 @@
         if(el) el.classList.toggle('hidden');
     }
 
-    // Logic for CO Popup Stepper (4 Steps) with Locking
-    let currentCoStep = 1;
-    let maxCoStep = 1;
+    // Logic for CO Popup Stepper (4 Steps) with Locking & LocalStorage
+    let maxCoStep = parseInt(localStorage.getItem('coMaxStep')) || 1;
+    let currentCoStep = maxCoStep;
 
     function updateCoStepper() {
         // Reset all slides
@@ -3333,6 +3373,7 @@
             // Unlock next step
             if (currentCoStep > maxCoStep) {
                 maxCoStep = currentCoStep;
+                localStorage.setItem('coMaxStep', maxCoStep); // Simpan progres langkah
             }
             updateCoStepper();
         }
@@ -3346,30 +3387,41 @@
         }
     }
 
-    function resetCoStepper() {
-        currentCoStep = 1;
+    // Fungsi untuk memulihkan input teks dan status selesai jika halam direfresh
+    function restoreCoState() {
+        const isSubmitted = localStorage.getItem('coOpinionSubmitted');
+        const savedText = localStorage.getItem('coOpinionText');
+
+        if (isSubmitted === 'true') {
+            const textarea = document.getElementById('opinionInput');
+            const btn = document.getElementById('submitOpinionBtn');
+            const feedback = document.getElementById('opinionFeedback');
+            const closingStatement = document.getElementById('closingStatement');
+            const finalBtnContainer = document.getElementById('finalCoButtonContainer');
+
+            if(textarea) {
+                textarea.value = savedText || '';
+                textarea.disabled = true;
+                textarea.classList.add('bg-gray-50', 'text-gray-500');
+            }
+            if(btn) {
+                btn.classList.add('hidden');
+            }
+            if(feedback) {
+                feedback.classList.remove('hidden');
+            }
+            if(closingStatement) {
+                closingStatement.classList.remove('hidden');
+            }
+            if(finalBtnContainer) {
+                finalBtnContainer.classList.remove('hidden');
+            }
+        }
         updateCoStepper();
-        // Reset opinion input if exists
-        const textarea = document.getElementById('opinionInput');
-        const btn = document.getElementById('submitOpinionBtn');
-        const feedback = document.getElementById('opinionFeedback');
-        const closingStatement = document.getElementById('closingStatement');
-        const finalBtnContainer = document.getElementById('finalCoButtonContainer');
-        
-        if(textarea) {
-            textarea.value = '';
-            textarea.disabled = false;
-            textarea.classList.remove('bg-gray-50', 'text-gray-500');
-        }
-        if(btn) {
-            btn.classList.remove('hidden', 'bg-indigo-600', 'hover:bg-indigo-700', 'shadow-md', 'cursor-pointer');
-            btn.classList.add('bg-gray-300', 'cursor-not-allowed');
-            btn.disabled = true;
-        }
-        if(feedback) feedback.classList.add('hidden');
-        if(closingStatement) closingStatement.classList.add('hidden');
-        if(finalBtnContainer) finalBtnContainer.classList.add('hidden');
     }
+
+    // Jalankan pemulihan data saat awal script dieksekusi
+    restoreCoState();
 
     // Logic for Opinion Input (CO Step 4)
     const opinionInput = document.getElementById('opinionInput');
@@ -3418,6 +3470,10 @@
                 finalBtnContainer.classList.remove('hidden');
                 finalBtnContainer.scrollIntoView({behavior: "smooth", block: "center"});
             }
+
+            // Simpan inputan dan status kunci ke LocalStorage
+            localStorage.setItem('coOpinionSubmitted', 'true');
+            localStorage.setItem('coOpinionText', textarea.value);
         }
     }
 
